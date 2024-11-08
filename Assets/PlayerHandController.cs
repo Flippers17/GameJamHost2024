@@ -20,9 +20,16 @@ public class PlayerHandController : MonoBehaviour
     [SerializeField]
     private float handMoveSpeed = 3f;
 
+    [Space(15), SerializeField]
+    private float _pickUpRadius = .3f;
+
+    private PickUpHandler _pickUpHandler = new PickUpHandler();
+
+
     private void OnEnable()
     {
         handPos.position = new Vector3(boundary.x, handHeight, boundary.y);
+        _input.OnPickUp += TryPickup;
     }
 
     private void Update()
@@ -34,6 +41,40 @@ public class PlayerHandController : MonoBehaviour
         newPos.z = Mathf.Clamp(newPos.z, boundary.position.y - (boundary.height / 2), boundary.position.y + (boundary.height / 2));
 
         handPos.position = newPos;
+    }
+
+    private void TryPickup()
+    {
+        if (_pickUpHandler.holdingItem)
+        {
+            DropItem();
+            return;
+        }
+
+        Collider[] objects = Physics.OverlapSphere(handPos.position, _pickUpRadius);
+
+        for(int i = 0; i < objects.Length; i++)
+        {
+            if(objects[i].TryGetComponent(out PickUpable item))
+            {
+                PickUpItem(item);
+                return;
+            }
+        }
+    }
+
+    private void PickUpItem(PickUpable item)
+    {
+        if (_pickUpHandler.holdingItem)
+            return;
+
+        _pickUpHandler.holdingItem = true;
+        _pickUpHandler.currentItem = item;
+    }
+
+    private void DropItem()
+    {
+
     }
 
 
