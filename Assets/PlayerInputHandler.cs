@@ -16,6 +16,7 @@ public class PlayerInputHandler : MonoBehaviour
     public Vector2 movementVector;
 
     public UnityAction OnPickUp;
+    public UnityAction OnLookUp;
 
     private void OnEnable()
     {
@@ -23,6 +24,7 @@ public class PlayerInputHandler : MonoBehaviour
         _input.actions["Hand movement"].canceled += OnHandMovement;
 
         _input.actions["Pick Up"].performed += OnPickUpInput;
+        _input.actions["Look Up"].performed += OnLookUpInput;
 
         if(_lockMouse)
             Cursor.lockState = CursorLockMode.Locked;
@@ -34,6 +36,7 @@ public class PlayerInputHandler : MonoBehaviour
         _input.actions["Hand movement"].canceled -= OnHandMovement;
 
         _input.actions["Pick Up"].performed -= OnPickUpInput;
+        _input.actions["Look Up"].performed -= OnLookUpInput;
     }
 
     private void OnHandMovement(InputAction.CallbackContext context)
@@ -44,5 +47,10 @@ public class PlayerInputHandler : MonoBehaviour
     private void OnPickUpInput(InputAction.CallbackContext context)
     {
         OnPickUp?.Invoke();
+    }
+    
+    private void OnLookUpInput(InputAction.CallbackContext context)
+    {
+        OnLookUp?.Invoke();
     }
 }
