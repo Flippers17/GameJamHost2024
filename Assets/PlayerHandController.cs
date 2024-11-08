@@ -23,6 +23,7 @@ public class PlayerHandController : MonoBehaviour
     [Space(15), SerializeField]
     private float _pickUpRadius = .3f;
 
+    [SerializeField]
     private PickUpHandler _pickUpHandler = new PickUpHandler();
 
 
@@ -41,6 +42,8 @@ public class PlayerHandController : MonoBehaviour
         newPos.z = Mathf.Clamp(newPos.z, boundary.position.y - (boundary.height / 2), boundary.position.y + (boundary.height / 2));
 
         handPos.position = newPos;
+
+        _pickUpHandler.MoveItem(newPos);
     }
 
     private void TryPickup()
@@ -68,13 +71,12 @@ public class PlayerHandController : MonoBehaviour
         if (_pickUpHandler.holdingItem)
             return;
 
-        _pickUpHandler.holdingItem = true;
-        _pickUpHandler.currentItem = item;
+        _pickUpHandler.PickUpItem(item);
     }
 
     private void DropItem()
     {
-
+        _pickUpHandler.DropItem();
     }
 
 
