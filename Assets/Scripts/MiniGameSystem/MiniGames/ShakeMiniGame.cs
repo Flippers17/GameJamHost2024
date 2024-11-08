@@ -19,11 +19,6 @@ public class ShakeMiniGame : MiniGameBase
     private float m_Progress = 0;
     private Vector2 m_OrganStartPos;
 
-    private void Start()
-    {
-        OnStart();
-    }
-
     public override void OnStart()
     {
         mouseDelta.Enable();
