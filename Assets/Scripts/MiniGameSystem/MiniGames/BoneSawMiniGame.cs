@@ -15,6 +15,7 @@ public class BoneSawMiniGame : MiniGame
     [SerializeField] private Image progressBar;
 
     private float m_CurrentZValue;
+    private float m_LastZValue;
     private float m_Progression;
 
     public override void OnStart(PlayerHandController controller, Organ organ)
@@ -34,8 +35,14 @@ public class BoneSawMiniGame : MiniGame
     {
         m_CurrentZValue += ctx.ReadValue<Vector2>().y;
 
-        if(m_CurrentZValue < maxZ && m_CurrentZValue > minZ)
+        if(m_CurrentZValue > maxZ)
+            m_CurrentZValue = maxZ;
+        else if (m_CurrentZValue < minZ)
+            m_CurrentZValue = minZ;
+
+        if(m_CurrentZValue < maxZ && m_CurrentZValue > minZ && Mathf.Abs(m_LastZValue - m_CurrentZValue) < 0.1f)
         {
+            Debug.Log("Adding!");
             m_Progression += 0.1f * Time.deltaTime;
             progressBar.fillAmount = m_Progression;
 
@@ -44,5 +51,7 @@ public class BoneSawMiniGame : MiniGame
                 Win();
             }
         }
+
+        m_LastZValue = m_CurrentZValue;
     }
 }
