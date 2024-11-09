@@ -3,7 +3,8 @@ using UnityEngine;
 public enum ToolType
 {
     Hand,
-    Bonesaw
+    Bonesaw,
+    scalpel
 }
 
 public class OrganEventTrigger : MonoBehaviour
@@ -15,7 +16,6 @@ public class OrganEventTrigger : MonoBehaviour
     private Transform _triggerPoint;
     [SerializeField]
     private Vector3 _size;
-
 
     public bool TryGetOrgan(PlayerHandController controller)
     {
@@ -53,6 +53,9 @@ public class OrganEventTrigger : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        if (!_triggerPoint)
+            return;
+
         Gizmos.color = Color.blue;
 
         Gizmos.DrawWireCube(_triggerPoint.position, _size);

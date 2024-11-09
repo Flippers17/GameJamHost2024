@@ -3,6 +3,7 @@ using UnityEngine;
 public class Mouth : MonoBehaviour
 {
     [SerializeField] private PointsManager pointsManager;
+    [SerializeField] private ParticleSystem bloodSplat;
 
     private PlayerHandController m_PlayerHandController;
 
@@ -24,6 +25,7 @@ public class Mouth : MonoBehaviour
         if(collision.TryGetComponent(out Organ organ))
         {
             pointsManager.AddPoints(organ.Points);
+            bloodSplat.Play();
             Destroy(organ.gameObject);
         }
     }
