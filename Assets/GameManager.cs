@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [HideInInspector]
     public GameManager instance;
 
     [SerializeField]
