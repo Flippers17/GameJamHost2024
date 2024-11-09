@@ -66,7 +66,7 @@ public class PlayerHandController : MonoBehaviour
     }
 
 
-    private void TryInteract()
+    public void TryInteract()
     {
         //if(!canMoveHand)
         //    return;
