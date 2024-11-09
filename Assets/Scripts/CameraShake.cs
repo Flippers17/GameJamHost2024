@@ -35,16 +35,16 @@ public class CameraShake : MonoBehaviour
         if(shakeDuration > 0)
         {
             Vector3 ranInsideUnitCircle = (Vector3)Random.insideUnitCircle * shakeMagnitude;
-            Vector3 shakePos = Vector3.Lerp(transform.localPosition, initial3DCamPosition + ranInsideUnitCircle, dampingSpeed);
+            Vector3 shakePos = Vector3.Lerp(transform.position, initial3DCamPosition + ranInsideUnitCircle, dampingSpeed);
 
-            transform.localPosition = shakePos;
+            transform.position = shakePos;
             
             shakeDuration -= Time.deltaTime;
             
             if (shakeDuration <= 0)
             {
                 shakeDuration = 0;
-                transform.localPosition = Vector3.Lerp(transform.localPosition, initial3DCamPosition, 1f);
+                transform.position = Vector3.Lerp(transform.position, initial3DCamPosition, 1f);
             }
         }
     }

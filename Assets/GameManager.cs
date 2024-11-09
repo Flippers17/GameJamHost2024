@@ -63,7 +63,14 @@ public class GameManager : MonoBehaviour
         if (_timeUntilTurning < 0 && _timeUntilTurning > -_timeToLookAtPlayer)
         {
             if (PlayerGettingCaught())
-                CatchPlayer();
+            {
+                if (CameraShake.s_Initialized)
+                {
+                    Debug.Log("SHAKE DOES NOT WORK WTF!");
+                    CameraShake.TriggerShake(2f, 1f, 0.3f); 
+                }
+                CatchPlayer(); 
+            }
         }
         else if (_timeUntilTurning < -_timeToLookAtPlayer)
         {
