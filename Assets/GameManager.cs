@@ -20,8 +20,6 @@ public class GameManager : MonoBehaviour
     private float _maxTimeLookingAtPlayer = 2f;
     private float _timeToLookAtPlayer = 0;
 
-    [SerializeField]
-    private ColleagueBehaviour _colleague;
 
     public UnityEvent OnPlayerCaught;
 
@@ -57,8 +55,6 @@ public class GameManager : MonoBehaviour
 
         ChangeWarningState(_timeUntilTurning/_currentDistractedDuration);
 
-        if (_timeUntilTurning < 1)
-            _colleague.LookTowardsPlayer();
 
         if (_timeUntilTurning < 0 && _timeUntilTurning > -_timeToLookAtPlayer)
         {
