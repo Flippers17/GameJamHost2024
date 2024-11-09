@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private ColleagueBehaviour _colleague;
 
-    private float _timeUntilTurning = 100f;
+    public float _timeUntilTurning = 100f;
 
     [SerializeField]
     private WarningSignPort _warningSignPort;
@@ -36,22 +36,20 @@ public class GameManager : MonoBehaviour
     {
         _timeUntilTurning -= Time.deltaTime;
 
-        float currentTimeProgress = _timeUntilTurning/_timeUntilTurning;
+        ChangeWarningState();
 
-        ChangeWarningState(currentTimeProgress);
+        if (_timeUntilTurning < 1)
+            _colleague.LookTowardsPlayer();
 
-        //if (_timeUntilTurning < 1)
-        //    _colleague.LookTowardsPlayer();
-
-        //if( _timeUntilTurning < 0 && _timeUntilTurning > -_timeToLookAtPlayer)
-        //{
-        //    if (PlayerGettingCaught())
-        //        CatchPlayer();
-        //}
-        //else if(_timeUntilTurning < -_timeToLookAtPlayer)
-        //{
-        //    ResetTimer();
-        //}
+        if (_timeUntilTurning < 0 && _timeUntilTurning > -_timeToLookAtPlayer)
+        {
+            if (PlayerGettingCaught())
+                CatchPlayer();
+        }
+        else if (_timeUntilTurning < -_timeToLookAtPlayer)
+        {
+            ResetTimer();
+        }
     }
 
 
@@ -66,20 +64,20 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void ChangeWarningState(float currentTimeProgress)
+    private void ChangeWarningState()
     {
-        if (currentTimeProgress < .3f)
-        {
-            _warningSignPort.ChangeStage(1);
-        }
-        else if (currentTimeProgress < .1f)
-        {
-            _warningSignPort.ChangeStage(2);
-        }
-        else if (currentTimeProgress <= 0)
+        if (_timeUntilTurning <= 0)
         {
             _warningSignPort.ChangeStage(3);
 
+        }
+        else if (_timeUntilTurning < 5f)
+        {
+            _warningSignPort.ChangeStage(2);
+        }
+        else if (_timeUntilTurning < 10f)
+        {
+            _warningSignPort.ChangeStage(1);
         }
         else
         {

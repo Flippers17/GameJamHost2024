@@ -8,6 +8,8 @@ public class LookHandler : MonoBehaviour
     private PlayerInputHandler _input;
     [SerializeField] 
     private PlayerHandController _handController;
+    [SerializeField]
+    private WarningSignPort _warningSignPort;
 
     [SerializeField]
     private Transform _tableViewPoint;
@@ -56,12 +58,14 @@ public class LookHandler : MonoBehaviour
             _targetPoint = _collegueViewPoint;
             lookingAtTable = false;
             _handController.DisableHand();
+            _warningSignPort.EnableWarningSign();
         }
         else
         {
             _targetPoint = _tableViewPoint;
             lookingAtTable = true;
             _handController.EnableHand();
+            _warningSignPort.DisableWarningSign();
         }
 
         _timeLastSwitched = Time.time;
