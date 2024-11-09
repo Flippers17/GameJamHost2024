@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -116,7 +117,7 @@ public class PlayerHandController : MonoBehaviour
 
     public void PickUpItem(PickUpable item)
     {
-        if (_pickUpHandler.holdingItem || !canMoveHand)
+        if (_pickUpHandler.holdingItem || !canMoveHand || !item.canBePickedUp)
             return;
 
         _handAnim.SetBool("Closed", true);
@@ -153,6 +154,7 @@ public class PlayerHandController : MonoBehaviour
     public void PlayMinigameAnimation(string stateName)
     {
         _handAnim.SetBool("In Minigame", true);
+        
         _handAnim.Play(stateName, 0);
     }
 
