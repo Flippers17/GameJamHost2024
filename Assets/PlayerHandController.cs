@@ -104,7 +104,7 @@ public class PlayerHandController : MonoBehaviour
         }
     }
 
-    private void PickUpItem(PickUpable item)
+    public void PickUpItem(PickUpable item)
     {
         if (_pickUpHandler.holdingItem || !canMoveHand)
             return;
