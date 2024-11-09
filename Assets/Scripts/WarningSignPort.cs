@@ -7,6 +7,18 @@ using UnityEngine.Events;
 public class WarningSignPort : ScriptableObject
 {
     public UnityAction<int> OnStageUpdate;
+    public UnityAction OnDisableSign;
+    public UnityAction OnEnableSign;
+
+    public void DisableWarningSign()
+    {
+        OnDisableSign?.Invoke();
+    }
+    
+    public void EnableWarningSign()
+    {
+        OnEnableSign?.Invoke();
+    }
 
     public void ChangeStage(int stage)
     {

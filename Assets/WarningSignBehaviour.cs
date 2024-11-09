@@ -23,6 +23,8 @@ public class WarningSignBehaviour : MonoBehaviour
     private void OnEnable()
     {
         port.OnStageUpdate += SetWarningColor;
+        port.OnDisableSign += DisableSign;
+        port.OnEnableSign += EnableSign;
     }
 
     private void OnDisable()
@@ -57,5 +59,16 @@ public class WarningSignBehaviour : MonoBehaviour
         }
 
         _image.color = newColor;
+    }
+
+
+    private void DisableSign()
+    {
+        _image.enabled = false;
+    }
+
+    private void EnableSign()
+    {
+        _image.enabled = true;
     }
 }
