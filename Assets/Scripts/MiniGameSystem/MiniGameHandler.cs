@@ -39,6 +39,9 @@ public class MiniGameHandler : MonoBehaviour
 
     private void UnsubscribeMiniGame()
     {
+        if (!m_CurrentMiniGame)
+            return;
+
         m_CurrentMiniGame.onWin -= OnWinMiniGame;
         m_CurrentMiniGame.onLost -= OnLostMiniGame;
     }
@@ -51,4 +54,6 @@ public class MiniGameHandler : MonoBehaviour
     {
         m_CurrentMiniGame = null;
     }
+
+    public void QuitMiniGame() => m_CurrentMiniGame.Quit();
 }

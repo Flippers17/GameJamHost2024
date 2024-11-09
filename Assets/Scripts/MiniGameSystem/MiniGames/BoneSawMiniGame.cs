@@ -33,17 +33,19 @@ public class BoneSawMiniGame : MiniGame
 
     private void OnMouseDelta(InputAction.CallbackContext ctx)
     {
-        m_CurrentZValue += ctx.ReadValue<Vector2>().y;
+        m_CurrentZValue += ctx.ReadValue<Vector2>().y * mouseSpeed;
 
         if(m_CurrentZValue > maxZ)
             m_CurrentZValue = maxZ;
         else if (m_CurrentZValue < minZ)
             m_CurrentZValue = minZ;
 
-        if(m_CurrentZValue < maxZ && m_CurrentZValue > minZ && Mathf.Abs(m_LastZValue - m_CurrentZValue) < 0.1f)
+        Debug.Log(m_CurrentZValue);
+
+        if(m_CurrentZValue < maxZ && m_CurrentZValue > minZ)
         {
             Debug.Log("Adding!");
-            m_Progression += 0.1f * Time.deltaTime;
+            m_Progression += Mathf.Abs(m_CurrentZValue - m_LastZValue * Time.deltaTime * 0.001f);
             progressBar.fillAmount = m_Progression;
 
             if(m_Progression >= 1)
