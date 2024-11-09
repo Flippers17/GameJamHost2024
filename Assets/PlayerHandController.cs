@@ -149,6 +149,11 @@ public class PlayerHandController : MonoBehaviour
         _input.OnInteract += TryInteract;
     }
 
+    public Vector2 GetHandPos()
+    {
+        return new Vector2(handPos.position.x, handPos.position.z);
+    }
+
 
     public void PlayMinigameAnimation(string stateName)
     {
