@@ -6,7 +6,7 @@ public class PickUpable : MonoBehaviour
 {
     private Rigidbody rb;
 
-    private void OnEnable()
+    public void OnEnable()
     {
         rb = GetComponent<Rigidbody>();
     }

@@ -23,7 +23,7 @@ public class OrganEventTrigger : MonoBehaviour
 
         for(int i = 0; i < possibleOrgans.Length; i++)
         {
-            if (possibleOrgans[i].TryGetComponent(out Organ organ))
+            if (possibleOrgans[i].TryGetComponent(out Organ organ) && !organ.IsMiniGameActive && !organ.Finished)
             {
                 if(organ.TriggerType == _toolType)
                 {

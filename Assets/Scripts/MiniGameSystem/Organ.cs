@@ -1,18 +1,21 @@
-using UnityEditor;
 using UnityEngine;
 
 public class Organ : PickUpable
 {
     public ToolType TriggerType => toolType;
+    public bool Finished => m_Finished;
 
     [SerializeField] private MiniGame miniGamePrefab;
     [SerializeField] private ToolType toolType;
 
+    private bool m_Finished = false;
+
     private MiniGame m_MiniGame;
     private Transform m_Transform;
 
-    private void OnEnable()
+    private new void OnEnable()
     {
+        base.OnEnable();
         m_Transform = transform;
     }
 
@@ -37,4 +40,8 @@ public class Organ : PickUpable
 
         m_Transform.position = newPos;
     }
+
+    public bool IsMiniGameActive => m_MiniGame;
+
+    public void SetFinished() => m_Finished = true;
 }

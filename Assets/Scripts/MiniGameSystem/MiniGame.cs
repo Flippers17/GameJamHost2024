@@ -18,6 +18,7 @@ public abstract class MiniGame : MonoBehaviour
     protected virtual void Win()
     {
         playerHand.EnableHand();
+        organ.SetFinished();
         onWin?.Invoke();
         Destroy(gameObject);
     }

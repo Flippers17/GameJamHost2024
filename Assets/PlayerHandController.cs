@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerHandController : MonoBehaviour
 {
+    public Transform HandTransform => handPos;
+
     [SerializeField]
     private PlayerInputHandler _input;
 

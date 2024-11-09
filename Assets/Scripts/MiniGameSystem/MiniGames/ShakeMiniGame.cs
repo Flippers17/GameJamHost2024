@@ -17,6 +17,7 @@ public class ShakeMiniGame : MiniGame
 
     private float m_Progress = 0;
     private Vector2 m_OrganStartPos;
+    private ParticleSystem m_BooldSplat;
 
     public override void OnStart(PlayerHandController controller, Organ organ)
     {
@@ -25,6 +26,7 @@ public class ShakeMiniGame : MiniGame
         mouseDelta.Enable();
         mouseDelta.performed += OnMousePoition;
         m_OrganStartPos = organ.transform.position;
+        m_BooldSplat = organ.GetComponentInChildren<ParticleSystem>();
     }
 
     private void OnDisable()
@@ -35,17 +37,18 @@ public class ShakeMiniGame : MiniGame
     private void OnMousePoition(InputAction.CallbackContext obj)
     {
         Vector2 delta = obj.ReadValue<Vector2>();
-        Vector2 toAdd = (Vector2)organ.transform.position + delta.normalized * shakeStrenght;
+        Vector2 newPos = (Vector2)organ.transform.position + delta.normalized * shakeStrenght;
 
-        if(CheckIfInsideCircleArea(toAdd, out Vector2 add))
+        if(CheckIfInsideCircleArea(newPos, out Vector2 add))
         {
-            //organ.transform.position = add;
+            float progressProcentage = m_Progress / maxProgress;
 
-            m_Progress += delta.magnitude * Time.deltaTime;
-            playerHand.MoveHand(delta.normalized);
-            organ.MoveOrgan(delta.normalized * m_Progress / maxProgress);
+            m_Progress += newPos.magnitude * Time.deltaTime;
+            playerHand.MoveHand(newPos.normalized * progressProcentage);
+            organ.MoveOrgan(newPos.normalized * progressProcentage);
+            m_BooldSplat.Play();
 
-            progressbar.fillAmount = m_Progress / maxProgress;
+            progressbar.fillAmount = progressProcentage;
 
             if(m_Progress >= maxProgress)
             {
@@ -59,12 +62,12 @@ public class ShakeMiniGame : MiniGame
         add = organ.transform.position;
         bool inside = false;
 
-        if (!(Mathf.Abs(p.x - m_OrganStartPos.x) > radius))
+        if (!(Mathf.Abs(m_OrganStartPos.x - p.x) > radius))
         {
             add.x = p.x;
             inside = true;
         }
-        if (!(Mathf.Abs(p.y - m_OrganStartPos.y) > radius))
+        if (!(Mathf.Abs(m_OrganStartPos.y - p.y) > radius))
         {
             add.y = p.y;
             inside = true;
