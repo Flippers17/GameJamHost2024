@@ -4,6 +4,7 @@ public class Organ : PickUpable
 {
     public ToolType TriggerType => toolType;
     public bool Finished => m_Finished;
+    public bool IsMiniGameActive => m_MiniGame;
 
     [SerializeField] private MiniGame miniGamePrefab;
     [SerializeField] private ToolType toolType;
@@ -16,6 +17,7 @@ public class Organ : PickUpable
     private new void OnEnable()
     {
         base.OnEnable();
+        canBePickedUp = false;
         m_Transform = transform;
     }
 
@@ -40,8 +42,6 @@ public class Organ : PickUpable
 
         m_Transform.position = newPos;
     }
-
-    public bool IsMiniGameActive => m_MiniGame;
 
     public void SetFinished() => m_Finished = true;
 }

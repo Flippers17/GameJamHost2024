@@ -358,3 +358,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb77b8c4219eaa24a85983862da0ca3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseSpeed: 0.05
+  maxZ: 5
+  minZ: -5
+  mouseDelta:
+    m_Name: Mouse Delta
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: de25a401-8e2b-4942-b84f-0a4c1daf5335
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 3c5eccd7-e677-4f22-93af-fd794a3b6fc3
+      m_Path: <Mouse>/delta
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Mouse Delta
+      m_Flags: 0
+    m_Flags: 0
+  progressBar: {fileID: 6162691104976243544}

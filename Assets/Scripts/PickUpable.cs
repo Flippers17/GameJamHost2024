@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PickUpable : MonoBehaviour
 {
+    public bool canBePickedUp = true;
+
     private Rigidbody rb;
 
     public void OnEnable()
