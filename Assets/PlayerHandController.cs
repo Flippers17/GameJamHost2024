@@ -10,6 +10,8 @@ public class PlayerHandController : MonoBehaviour
 
     [SerializeField]
     private Transform handPos;
+    [SerializeField]
+    private OrganEventTrigger _organTrigger;
 
     [SerializeField]
     private Rect boundary;
@@ -26,19 +28,35 @@ public class PlayerHandController : MonoBehaviour
     [SerializeField]
     private PickUpHandler _pickUpHandler = new PickUpHandler();
 
+    public bool canMoveHand = true;
+
 
     private void OnEnable()
     {
         handPos.position = new Vector3(boundary.x, handHeight, boundary.y);
-        _input.OnPickUp += TryPickup;
+        _input.OnInteract += TryPickup;
+        _input.OnDrop += DropItem;
+    }
+
+    private void OnDisable()
+    {
+        _input.OnInteract -= TryPickup;
+        _input.OnDrop -= DropItem;
     }
 
     private void Update()
     {
-        Vector3 newPos = handPos.position;
-        newPos += new Vector3(_input.movementVector.x, 0, _input.movementVector.y) * (handMoveSpeed * Time.deltaTime);
+        if (canMoveHand)
+            MoveHand(_input.movementVector * handMoveSpeed);
+    }
 
-        newPos.x = Mathf.Clamp(newPos.x, boundary.position.x - (boundary.width/2), boundary.position.x + (boundary.width / 2));
+
+    public void MoveHand(Vector2 movement)
+    {
+        Vector3 newPos = handPos.position;
+        newPos += new Vector3(movement.x, 0, movement.y) * Time.deltaTime;
+
+        newPos.x = Mathf.Clamp(newPos.x, boundary.position.x - (boundary.width / 2), boundary.position.x + (boundary.width / 2));
         newPos.z = Mathf.Clamp(newPos.z, boundary.position.y - (boundary.height / 2), boundary.position.y + (boundary.height / 2));
 
         handPos.position = newPos;
@@ -46,11 +64,24 @@ public class PlayerHandController : MonoBehaviour
         _pickUpHandler.MoveItem(newPos);
     }
 
+
     private void TryPickup()
     {
         if (_pickUpHandler.holdingItem)
         {
-            DropItem();
+            //DropItem();
+            //Trigger minigames and stuff
+            if (_pickUpHandler.TryTriggerOrganEvent(this))
+            {
+                canMoveHand = false;
+            }
+
+            return;
+        }
+
+        if (_organTrigger.TryGetOrgan(this))
+        {
+            canMoveHand = false;
             return;
         }
 
@@ -58,6 +89,7 @@ public class PlayerHandController : MonoBehaviour
 
         for(int i = 0; i < objects.Length; i++)
         {
+
             if(objects[i].TryGetComponent(out PickUpable item))
             {
                 PickUpItem(item);
@@ -76,6 +108,9 @@ public class PlayerHandController : MonoBehaviour
 
     private void DropItem()
     {
+        if (!_pickUpHandler.holdingItem)
+            return;
+
         _pickUpHandler.DropItem();
     }
 
@@ -84,5 +119,7 @@ public class PlayerHandController : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(new Vector3(boundary.position.x, handHeight, boundary.position.y), new Vector3(boundary.width, 1, boundary.height));
+
+        Gizmos.DrawWireSphere(handPos.position, _pickUpRadius);
     }
 }

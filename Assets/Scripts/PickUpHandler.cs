@@ -30,6 +30,20 @@ public class PickUpHandler
     }
 
 
+    public bool TryTriggerOrganEvent(PlayerHandController handController)
+    {
+        if (!holdingItem)
+            return false;
+
+        if(currentItem.TryGetComponent(out OrganEventTrigger trigger))
+        {
+            return trigger.TryGetOrgan(handController);
+        }
+
+        return false;
+    }
+
+
     public void MoveItem(Vector3 position)
     {
         if(!holdingItem)

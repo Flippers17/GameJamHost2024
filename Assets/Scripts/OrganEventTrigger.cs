@@ -16,7 +16,8 @@ public class OrganEventTrigger : MonoBehaviour
     [SerializeField]
     private Vector3 _size;
 
-    public void TryGetOrgan(PlayerHandController controller)
+
+    public bool TryGetOrgan(PlayerHandController controller)
     {
         Collider[] possibleOrgans = Physics.OverlapBox(_triggerPoint.position, _size);
 
@@ -27,8 +28,20 @@ public class OrganEventTrigger : MonoBehaviour
                 if(organ.TriggerType == _toolType)
                 {
                     organ.StartMiniGame(controller);
+                    return true;
                 }
             }
         }
+
+        return false;
+    }
+
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+
+        Gizmos.DrawWireCube(_triggerPoint.position, _size);
     }
 }

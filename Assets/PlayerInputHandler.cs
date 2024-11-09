@@ -15,7 +15,8 @@ public class PlayerInputHandler : MonoBehaviour
     [HideInInspector]
     public Vector2 movementVector;
 
-    public UnityAction OnPickUp;
+    public UnityAction OnInteract;
+    public UnityAction OnDrop;
     public UnityAction OnLookUp;
 
     private void OnEnable()
@@ -23,7 +24,8 @@ public class PlayerInputHandler : MonoBehaviour
         _input.actions["Hand movement"].performed += OnHandMovement;
         _input.actions["Hand movement"].canceled += OnHandMovement;
 
-        _input.actions["Pick Up"].performed += OnPickUpInput;
+        _input.actions["Interact"].performed += OnInteractInput;
+        _input.actions["Drop"].performed += OnDropInput;
         _input.actions["Look Up"].performed += OnLookUpInput;
 
         if(_lockMouse)
@@ -35,7 +37,8 @@ public class PlayerInputHandler : MonoBehaviour
         _input.actions["Hand movement"].performed -= OnHandMovement;
         _input.actions["Hand movement"].canceled -= OnHandMovement;
 
-        _input.actions["Pick Up"].performed -= OnPickUpInput;
+        _input.actions["Interact"].performed -= OnInteractInput;
+        _input.actions["Drop"].performed -= OnDropInput;
         _input.actions["Look Up"].performed -= OnLookUpInput;
     }
 
@@ -44,9 +47,14 @@ public class PlayerInputHandler : MonoBehaviour
         movementVector = context.ReadValue<Vector2>();
     }
     
-    private void OnPickUpInput(InputAction.CallbackContext context)
+    private void OnInteractInput(InputAction.CallbackContext context)
     {
-        OnPickUp?.Invoke();
+        OnInteract?.Invoke();
+    }
+    
+    private void OnDropInput(InputAction.CallbackContext context)
+    {
+        OnDrop?.Invoke();
     }
     
     private void OnLookUpInput(InputAction.CallbackContext context)

@@ -1672,6 +1672,7 @@ GameObject:
   - component: {fileID: 1568142725}
   - component: {fileID: 1568142724}
   - component: {fileID: 1568142723}
+  - component: {fileID: 1568142727}
   m_Layer: 0
   m_Name: HandPos
   m_TagString: Untagged
@@ -1757,6 +1758,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1568142727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568142722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f767776b368c2fa4ba029117e8a3a366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _toolType: 0
+  _triggerPoint: {fileID: 1568142726}
+  _size: {x: 0.4, y: 0.4, z: 0.4}
 --- !u!1 &1569463213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,6 +1807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _input: {fileID: 1569463216}
   handPos: {fileID: 1568142726}
+  _organTrigger: {fileID: 1568142727}
   boundary:
     serializedVersion: 2
     x: 0
@@ -1804,6 +1821,7 @@ MonoBehaviour:
     currentItem: {fileID: 0}
     lerpSpeed: 100
     holdingItem: 0
+  canMoveHand: 1
 --- !u!114 &1569463215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1880,7 +1898,7 @@ MonoBehaviour:
   _input: {fileID: 1569463216}
   _tableViewPoint: {fileID: 715986194}
   _collegueViewPoint: {fileID: 1139838383}
-  _lerpSpeed: 5
+  _lerpSpeed: 10
   _lookSwitchDelay: 0.5
 --- !u!1 &1575470806
 GameObject:
