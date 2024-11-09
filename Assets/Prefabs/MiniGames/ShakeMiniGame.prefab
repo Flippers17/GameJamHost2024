@@ -358,9 +358,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ea6aa992507de4abde6ac9cc8f2e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neededProgress: 100
+  _progressFill: {fileID: 3304103303207585469}
+  _animationState: MinigameState
   radius: 50
-  shakeStrenght: 30
-  maxProgress: 200
+  shakeStrenght: 1
+  _handMovementMultiplier: 0.1
+  _shakeRewardMultiplier: 1
   progressbar: {fileID: 3304103303207585469}
   mouseDelta:
     m_Name: Mouse Delta

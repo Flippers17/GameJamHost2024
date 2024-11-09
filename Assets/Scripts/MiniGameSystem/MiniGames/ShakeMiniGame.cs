@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -7,7 +8,10 @@ public class ShakeMiniGame : MiniGame
     [Header("Parameters")]
     [SerializeField] private float radius = 50;
     [SerializeField] private float shakeStrenght = 30;
-    [SerializeField] private float maxProgress = 1000;
+    [SerializeField]
+    private float _handMovementMultiplier = 1f;
+    [SerializeField]
+    private float _shakeRewardMultiplier = 10f;
 
     [Header("Objects")]
     [SerializeField] private Image progressbar;
@@ -15,9 +19,10 @@ public class ShakeMiniGame : MiniGame
     [Header("Input")]
     [SerializeField] private InputAction mouseDelta;
 
-    private float m_Progress = 0;
     private Vector2 m_OrganStartPos;
     private ParticleSystem m_BooldSplat;
+
+    private Vector2 _lastDragDir;
 
     public override void OnStart(PlayerHandController controller, Organ organ)
     {
@@ -36,24 +41,24 @@ public class ShakeMiniGame : MiniGame
 
     private void OnMousePoition(InputAction.CallbackContext obj)
     {
-        Vector2 delta = obj.ReadValue<Vector2>();
-        Vector2 newPos = (Vector2)organ.transform.position + delta.normalized * shakeStrenght;
+        Vector2 movement = obj.ReadValue<Vector2>();
+        if(Vector2.Dot(movement, _lastDragDir) < 0)
+            movement *= _shakeRewardMultiplier;
+
+        _lastDragDir = movement;
+        Vector2 newPos = (Vector2)organ.transform.position + (movement * shakeStrenght * Time.deltaTime);
+
+        
 
         if(CheckIfInsideCircleArea(newPos, out Vector2 add))
         {
-            float progressProcentage = m_Progress / maxProgress;
+            float progressProcentage = progress/neededProgress;
 
-            m_Progress += newPos.magnitude * Time.deltaTime;
-            playerHand.MoveHand(newPos.normalized * progressProcentage);
-            organ.MoveOrgan(newPos.normalized * progressProcentage);
+            IncreaseProgress(movement.magnitude * shakeStrenght * Time.deltaTime);
+            playerHand.MoveHand(movement * _handMovementMultiplier * progressProcentage);
+            organ.MoveOrgan(movement * _handMovementMultiplier * progressProcentage);
             m_BooldSplat.Play();
 
-            progressbar.fillAmount = progressProcentage;
-
-            if(m_Progress >= maxProgress)
-            {
-                Win();
-            }
         }
     }
 

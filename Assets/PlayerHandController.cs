@@ -14,6 +14,14 @@ public class PlayerHandController : MonoBehaviour
     [SerializeField]
     private Transform handPos;
     [SerializeField]
+    private Transform _handMesh;
+    [SerializeField]
+    private Vector3 _meshOffset;
+    [SerializeField]
+    private Animator _handAnim;
+
+
+    [Space(15),SerializeField]
     private OrganEventTrigger _organTrigger;
 
     [SerializeField]
@@ -65,6 +73,8 @@ public class PlayerHandController : MonoBehaviour
         handPos.position = newPos;
 
         _pickUpHandler.MoveItem(newPos);
+
+        _handMesh.transform.position = handPos.position + _meshOffset;
     }
 
 
@@ -109,6 +119,7 @@ public class PlayerHandController : MonoBehaviour
         if (_pickUpHandler.holdingItem || !canMoveHand)
             return;
 
+        _handAnim.SetBool("Closed", true);
         _pickUpHandler.PickUpItem(item);
     }
 
@@ -117,6 +128,7 @@ public class PlayerHandController : MonoBehaviour
         if (!_pickUpHandler.holdingItem || !canMoveHand)
             return;
 
+        _handAnim.SetBool("Closed", false);
         _pickUpHandler.DropItem();
     }
 
@@ -135,6 +147,25 @@ public class PlayerHandController : MonoBehaviour
             return ;
         canMoveHand = true;
         _input.OnInteract += TryInteract;
+    }
+
+
+    public void PlayMinigameAnimation(string stateName)
+    {
+        _handAnim.SetBool("In Minigame", true);
+        _handAnim.Play(stateName);
+    }
+
+    public void WinMinigameAnim()
+    {
+        _handAnim.SetBool("In Minigame", false);
+        _handAnim.SetTrigger("Win Minigame");
+    }
+    
+    public void LoseMiniagemAnim()
+    {
+        _handAnim.SetBool("In Minigame", false);
+        _handAnim.SetTrigger("Lose Minigame");
     }
 
 
