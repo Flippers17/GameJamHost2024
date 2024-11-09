@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 public class PlayerHandController : MonoBehaviour
@@ -76,7 +77,7 @@ public class PlayerHandController : MonoBehaviour
             //Trigger minigames and stuff
             if (_pickUpHandler.TryTriggerOrganEvent(this))
             {
-                canMoveHand = false;
+                DisableHand();
             }
 
             return;
@@ -84,7 +85,7 @@ public class PlayerHandController : MonoBehaviour
 
         if (_organTrigger.TryGetOrgan(this))
         {
-            canMoveHand = false;
+            DisableHand();
             return;
         }
 
@@ -115,6 +116,17 @@ public class PlayerHandController : MonoBehaviour
             return;
 
         _pickUpHandler.DropItem();
+    }
+
+
+    public void DisableHand()
+    {
+        canMoveHand = false;
+    }
+
+    public void EnableHand()
+    {
+        canMoveHand = true;
     }
 
 

@@ -6,6 +6,8 @@ public class LookHandler : MonoBehaviour
 {
     [SerializeField]
     private PlayerInputHandler _input;
+    [SerializeField] 
+    private PlayerHandController _handController;
 
     [SerializeField]
     private Transform _tableViewPoint;
@@ -53,11 +55,13 @@ public class LookHandler : MonoBehaviour
         {
             _targetPoint = _collegueViewPoint;
             lookingAtTable = false;
+            _handController.DisableHand();
         }
         else
         {
             _targetPoint = _tableViewPoint;
             lookingAtTable = true;
+            _handController.EnableHand();
         }
 
         _timeLastSwitched = Time.time;
