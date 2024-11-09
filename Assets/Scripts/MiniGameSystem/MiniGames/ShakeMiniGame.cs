@@ -10,7 +10,6 @@ public class ShakeMiniGame : MiniGame
     [SerializeField] private float maxProgress = 1000;
 
     [Header("Objects")]
-    [SerializeField] private RectTransform organTransform;
     [SerializeField] private Image progressbar;
 
     [Header("Input")]
@@ -25,7 +24,7 @@ public class ShakeMiniGame : MiniGame
 
         mouseDelta.Enable();
         mouseDelta.performed += OnMousePoition;
-        m_OrganStartPos = organTransform.position;
+        m_OrganStartPos = organ.transform.position;
     }
 
     private void OnDisable()
@@ -36,11 +35,11 @@ public class ShakeMiniGame : MiniGame
     private void OnMousePoition(InputAction.CallbackContext obj)
     {
         Vector2 delta = obj.ReadValue<Vector2>();
-        Vector2 toAdd = (Vector2)organTransform.position + delta.normalized * shakeStrenght;
+        Vector2 toAdd = (Vector2)organ.transform.position + delta.normalized * shakeStrenght;
 
         if(CheckIfInsideCircleArea(toAdd, out Vector2 add))
-        { 
-            organTransform.position = add;
+        {
+            //organ.transform.position = add;
 
             m_Progress += delta.magnitude * Time.deltaTime;
             playerHand.MoveHand(delta.normalized);
@@ -57,7 +56,7 @@ public class ShakeMiniGame : MiniGame
 
     public bool CheckIfInsideCircleArea(Vector2 p, out Vector2 add)
     {
-        add = organTransform.position;
+        add = organ.transform.position;
         bool inside = false;
 
         if (!(Mathf.Abs(p.x - m_OrganStartPos.x) > radius))

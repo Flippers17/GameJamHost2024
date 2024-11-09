@@ -35,8 +35,6 @@ public class Organ : PickUpable
         Vector3 newPos = m_Transform.position;
         newPos += new Vector3(movement.x, 0, movement.y) * Time.deltaTime;
 
-        Debug.Log(movement);
-
         m_Transform.position = newPos;
     }
 }
