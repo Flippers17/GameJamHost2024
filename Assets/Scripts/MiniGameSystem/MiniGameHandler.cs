@@ -6,10 +6,10 @@ public class MiniGameHandler : MonoBehaviour
     public UnityEvent OnSuccesfulMiniGame;
     public UnityEvent OnUnsuccesfulMiniGame;
 
-    private MiniGameBase m_CurrentMiniGame;
+    private MiniGame m_CurrentMiniGame;
 
-    public void SetMiniGame(MiniGameBase game) => m_CurrentMiniGame = game;
-    public void SetMiniGameAndStart(MiniGameBase game)
+    public void SetMiniGame(MiniGame game) => m_CurrentMiniGame = game;
+    public void SetMiniGameAndStart(MiniGame game)
     {
         m_CurrentMiniGame = game;
         StartMiniGame();

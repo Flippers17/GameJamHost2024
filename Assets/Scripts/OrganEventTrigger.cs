@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum TriggerType
+public enum ToolType
 {
     Hand,
     Bonesaw
@@ -12,7 +12,7 @@ public enum TriggerType
 public class OrganEventTrigger : MonoBehaviour
 {
     [SerializeField]
-    private TriggerType _triggerType;
+    private ToolType _triggerType;
 
     [SerializeField]
     private Transform _triggerPoint;

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class ShakeMiniGame : MiniGameBase
+public class ShakeMiniGame : MiniGame
 {
     [Header("Parameters")]
     [SerializeField] private float radius = 50;
@@ -18,9 +18,11 @@ public class ShakeMiniGame : MiniGameBase
 
     private float m_Progress = 0;
     private Vector2 m_OrganStartPos;
+    private PlayerHandController m_Hand;
 
-    public override void OnStart()
+    public override void OnStart(PlayerHandController controller)
     {
+        m_Hand = controller;
         mouseDelta.Enable();
         mouseDelta.performed += OnMousePoition;
         m_OrganStartPos = organTransform.position;
@@ -41,12 +43,13 @@ public class ShakeMiniGame : MiniGameBase
             organTransform.position = add;
 
             m_Progress += delta.magnitude * Time.deltaTime;
+            //m_Hand.transform.position = (Vector2)m_Hand.transform.position + delta.normalized * shakeStrenght;
+
             progressbar.fillAmount = m_Progress / maxProgress;
 
             if(m_Progress >= maxProgress)
             {
-                //End mini game
-                Debug.Log("Finished!");
+                onCompletedSuccesfully?.Invoke();
             }
         }
     }
