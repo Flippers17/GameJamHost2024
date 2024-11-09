@@ -6,11 +6,6 @@ public class NextButton : PickUpable
     [SerializeField] private Animator animator;
     [SerializeField] private float moveAwayAnimTime = 2;
 
-    [SerializeField][Tooltip("The time it takes for the animation that takes away the body")] 
-    private float higherAnimTime = 1f;
-    private float currentLerpTime = 0;
-
-    private bool moveAway = false;
     private bool active = false;
 
     public new void OnEnable()
@@ -21,47 +16,24 @@ public class NextButton : PickUpable
 
     public override void OnPickUp()
     {
-        //if (active)
-        //    return;
+        if (active)
+            return;
 
-        //if (!moveAway)
-        //{
-        //    moveAway = true;
-        //}
-        //else
-        //{
-        //    moveAway = false;
-        //}
-
-        //active = true;
-        //currentLerpTime = 0;
-
-        animator.SetBool("GettingNewCorpse", true);
+        StartCoroutine(GetNewCorpse());
     }
 
-    //private void Update()
-    //{
-    //    if (!active)
-    //        return;
+    private IEnumerator GetNewCorpse()
+    {
+        active = true;
+        animator.SetBool("GettingNewCorpse", true);
 
-    //    if (moveAway && lerpMoveTime > currentLerpTime)
-    //    {
-    //        table.position = Vector3.Lerp(table.position, tableAwayPos.position, currentLerpTime);
+        yield return new WaitForSeconds(moveAwayAnimTime);
 
-    //        currentLerpTime += Time.deltaTime;
-    //    }
-    //    else if (!moveAway && lerpMoveTime > currentLerpTime)
-    //    {
-    //        table.position = Vector3.Lerp(table.position, tablePos.position, currentLerpTime);
 
-    //        currentLerpTime += Time.deltaTime;
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("Done!");
-    //        active = false;
-    //    }
-    //}
+
+        animator.SetBool("GettingNewCorpse", false);
+        active = false;
+    }
 
     public override void OnDrop()
     {
