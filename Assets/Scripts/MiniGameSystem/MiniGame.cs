@@ -19,6 +19,7 @@ public abstract class MiniGame : MonoBehaviour
     {
         playerHand.EnableHand();
         organ.SetFinished();
+        organ.canBePickedUp = true;
         playerHand.PickUpItem(organ);
         onWin?.Invoke();
         Destroy(gameObject);
