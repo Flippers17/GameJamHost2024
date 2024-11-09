@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 public class MiniGameHandler : MonoBehaviour
 {
+    public bool InMiniGame => m_CurrentMiniGame;
+
     public static MiniGameHandler Instance;
 
     private MiniGame m_CurrentMiniGame;
@@ -43,10 +45,10 @@ public class MiniGameHandler : MonoBehaviour
 
     private void OnWinMiniGame()
     {
-        
+        m_CurrentMiniGame = null;
     }
     private void OnLostMiniGame()
     {
-
+        m_CurrentMiniGame = null;
     }
 }

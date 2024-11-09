@@ -30,4 +30,9 @@ public abstract class MiniGame : MonoBehaviour
         onLost?.Invoke();
         Destroy(gameObject);
     }
+
+    public void Quit()
+    {
+        Lose();
+    }
 }
