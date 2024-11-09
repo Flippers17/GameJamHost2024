@@ -362,9 +362,9 @@ MonoBehaviour:
   _progressFill: {fileID: 3304103303207585469}
   _animationState: MinigameState
   radius: 50
-  shakeStrenght: 1
-  _handMovementMultiplier: 0.1
-  _shakeRewardMultiplier: 1
+  shakeStrenght: 5
+  _handMovementMultiplier: 1
+  _shakeRewardMultiplier: 5
   progressbar: {fileID: 3304103303207585469}
   mouseDelta:
     m_Name: Mouse Delta
