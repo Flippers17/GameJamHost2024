@@ -13,6 +13,9 @@ public abstract class MiniGame : MonoBehaviour
     [SerializeField]
     private Image _progressFill;
 
+    [SerializeField]
+    private string _animationState;
+
     protected PlayerHandController playerHand;
     protected Organ organ;
 
@@ -20,6 +23,7 @@ public abstract class MiniGame : MonoBehaviour
     {
         playerHand = controller;
         this.organ = organ;
+        playerHand.PlayMinigameAnimation(_animationState);
     }
 
     protected virtual void Win()
@@ -30,11 +34,13 @@ public abstract class MiniGame : MonoBehaviour
         playerHand.PickUpItem(organ);
         onWin?.Invoke();
         Destroy(gameObject);
+        playerHand.WinMinigameAnim();
     }
 
     protected virtual void Lose()
     {
         playerHand.EnableHand();
+        playerHand.LoseMiniagemAnim();
         onLost?.Invoke();
         Destroy(gameObject);
     }
