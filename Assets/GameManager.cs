@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameManager instance;
+
     [SerializeField]
     private float _minDistractedDuration = 10f;
     [SerializeField]
@@ -23,6 +25,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private WarningSignPort _warningSignPort;
 
+    private bool _gameOver = false;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +43,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (_gameOver)
+            return;
+
         _timeUntilTurning -= Time.deltaTime;
 
         ChangeWarningState();
@@ -55,13 +68,13 @@ public class GameManager : MonoBehaviour
 
     private bool PlayerGettingCaught()
     {
-        return false;
+        return MiniGameHandler.Instance.InMiniGame;
     }
 
 
     private void CatchPlayer()
     {
-
+        _gameOver = true;
     }
 
     private void ChangeWarningState()
