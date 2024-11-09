@@ -21,9 +21,4 @@ public class Organ : MonoBehaviour
 
         miniGamePrefab.OnStart();
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        
-    }
 }
