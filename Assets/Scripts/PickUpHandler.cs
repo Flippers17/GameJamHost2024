@@ -15,6 +15,13 @@ public class PickUpHandler
 
     public void PickUpItem(PickUpable item)
     {
+        if (!item.canBePickedUp)
+        {
+            if(item.UpdateOnPickUp)
+                item.OnPickUp();
+            return;
+        }
+
         currentItem = item; 
         holdingItem = true;
 
