@@ -932,9 +932,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBePickedUp: 0
+  corpsePrefab: {fileID: 1567111333505189521, guid: 96757e5c9d66221478483e493375e4f9,
+    type: 3}
+  table: {fileID: 1385784261}
   animator: {fileID: 1385784262}
   moveAwayAnimTime: 2
-  higherAnimTime: 2
 --- !u!1 &1033808933
 GameObject:
   m_ObjectHideFlags: 0

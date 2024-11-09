@@ -9852,6 +9852,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a738fd87daf674bbb741c33351c843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neededProgress: 100
+  _progressFill: {fileID: 0}
+  _animationState: 
   veinCutMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   bloodSpurt: {fileID: 7549892378628186385}
 --- !u!1 &7549892379438252378
@@ -9966,6 +9969,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a738fd87daf674bbb741c33351c843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neededProgress: 100
+  _progressFill: {fileID: 0}
+  _animationState: 
   veinCutMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   bloodSpurt: {fileID: 7549892379634950862}
 --- !u!1 &7549892379589582578
@@ -10080,6 +10086,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a738fd87daf674bbb741c33351c843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neededProgress: 100
+  _progressFill: {fileID: 0}
+  _animationState: 
   veinCutMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   bloodSpurt: {fileID: 7549892378669662989}
 --- !u!1 &7549892379634950859
@@ -15064,6 +15073,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a738fd87daf674bbb741c33351c843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neededProgress: 100
+  _progressFill: {fileID: 0}
+  _animationState: 
   veinCutMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   bloodSpurt: {fileID: 7549892380433712772}
 --- !u!1 &7549892380364024329
@@ -15095,7 +15107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7549892380364024329}
   m_LocalRotation: {x: -0.70710784, y: -0.70710576, z: 0.000000018765714, w: 0}
-  m_LocalPosition: {x: -3.4185314, y: 0.46, z: -7.535}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -15169,6 +15181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBePickedUp: 0
+  points: 1
   miniGamePrefab: {fileID: 453588414874783099, guid: 09523d068a466ff46bb0294c59b5efc3,
     type: 3}
   toolType: 0

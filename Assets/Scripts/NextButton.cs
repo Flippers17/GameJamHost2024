@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class NextButton : PickUpable
 {
+    [SerializeField] private OrganSpawner corpsePrefab;
+    [SerializeField] private Transform table;
     [SerializeField] private Animator animator;
     [SerializeField] private float moveAwayAnimTime = 2;
 
@@ -19,8 +21,6 @@ public class NextButton : PickUpable
         if (active)
             return;
 
-        Debug.Log("Sheeesh");
-
         StartCoroutine(GetNewCorpse());
     }
 
@@ -31,6 +31,12 @@ public class NextButton : PickUpable
 
         yield return new WaitForSeconds(moveAwayAnimTime);
 
+        Destroy(table.GetChild(0).gameObject);
+
+        Vector3 spawnPos = new Vector3(table.position.x, corpsePrefab.transform.position.y, table.position.z);
+        OrganSpawner spawner = Instantiate(corpsePrefab, spawnPos, corpsePrefab.transform.rotation);
+        spawner.RandomizeOrgan();
+        spawner.transform.parent = table;
 
 
         animator.SetBool("GettingNewCorpse", false);
