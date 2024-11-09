@@ -1,0 +1,446 @@
+fileFormatVersion: 2
+guid: f80cde01b1fda024388f41d977b6e10b
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 0
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Typing
+      takeName: Armature|Action
+      internalID: 885944232402757753
+      firstFrame: 1
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/COG
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/L_CLAVICLE_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/L_CLAVICLE_DEF/L_UPPER_ARM_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/L_CLAVICLE_DEF/L_UPPER_ARM_DEF/L_LOWERARM_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/L_CLAVICLE_DEF/L_UPPER_ARM_DEF/L_LOWERARM_DEF/L_HAND_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/L_CLAVICLE_DEF/L_UPPER_ARM_DEF/L_LOWERARM_DEF/L_HAND_DEF/L_FINGERS01_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/L_CLAVICLE_DEF/L_UPPER_ARM_DEF/L_LOWERARM_DEF/L_HAND_DEF/L_FINGERS01_DEF/L_FINGERS02_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/L_CLAVICLE_DEF/L_UPPER_ARM_DEF/L_LOWERARM_DEF/L_HAND_DEF/L_FINGERS01_DEF/L_FINGERS02_DEF/L_FINGERS03_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/L_CLAVICLE_DEF/L_UPPER_ARM_DEF/L_LOWERARM_DEF/L_HAND_DEF/L_FINGERS01_DEF/L_FINGERS02_DEF/L_FINGERS03_DEF/L_FINGERS03_DEF_end
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/L_CLAVICLE_DEF/L_UPPER_ARM_DEF/L_LOWERARM_DEF/L_THUMB01_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/L_CLAVICLE_DEF/L_UPPER_ARM_DEF/L_LOWERARM_DEF/L_THUMB01_DEF/L_THUMB02_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/L_CLAVICLE_DEF/L_UPPER_ARM_DEF/L_LOWERARM_DEF/L_THUMB01_DEF/L_THUMB02_DEF/L_THUMB03_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/L_CLAVICLE_DEF/L_UPPER_ARM_DEF/L_LOWERARM_DEF/L_THUMB01_DEF/L_THUMB02_DEF/L_THUMB03_DEF/L_THUMB03_DEF_end
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/R_CLAVICLE_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/R_CLAVICLE_DEF/R_UPPER_ARM_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/R_CLAVICLE_DEF/R_UPPER_ARM_DEF/R_LOWERARM_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/R_CLAVICLE_DEF/R_UPPER_ARM_DEF/R_LOWERARM_DEF/R_HAND_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/R_CLAVICLE_DEF/R_UPPER_ARM_DEF/R_LOWERARM_DEF/R_HAND_DEF/R_FINGERS01_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/R_CLAVICLE_DEF/R_UPPER_ARM_DEF/R_LOWERARM_DEF/R_HAND_DEF/R_FINGERS01_DEF/R_FINGERS02_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/R_CLAVICLE_DEF/R_UPPER_ARM_DEF/R_LOWERARM_DEF/R_HAND_DEF/R_FINGERS01_DEF/R_FINGERS02_DEF/R_FINGERS03_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/R_CLAVICLE_DEF/R_UPPER_ARM_DEF/R_LOWERARM_DEF/R_HAND_DEF/R_FINGERS01_DEF/R_FINGERS02_DEF/R_FINGERS03_DEF/R_FINGERS03_DEF_end
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/R_CLAVICLE_DEF/R_UPPER_ARM_DEF/R_LOWERARM_DEF/R_THUMB01_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/R_CLAVICLE_DEF/R_UPPER_ARM_DEF/R_LOWERARM_DEF/R_THUMB01_DEF/R_THUMB02_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/R_CLAVICLE_DEF/R_UPPER_ARM_DEF/R_LOWERARM_DEF/R_THUMB01_DEF/R_THUMB02_DEF/R_THUMB03_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/R_CLAVICLE_DEF/R_UPPER_ARM_DEF/R_LOWERARM_DEF/R_THUMB01_DEF/R_THUMB02_DEF/R_THUMB03_DEF/R_THUMB03_DEF_end
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/SPINE03_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/SPINE03_DEF/NECK_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/SPINE03_DEF/NECK_DEF/HEAD_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/SPINE03_DEF/NECK_DEF/HEAD_DEF/L_EYEBROW_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/SPINE03_DEF/NECK_DEF/HEAD_DEF/L_EYEBROW_DEF/L_EYEBROW_DEF_end
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/SPINE03_DEF/NECK_DEF/HEAD_DEF/PONYTAIL01_DEF
+        weight: 0
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/SPINE03_DEF/NECK_DEF/HEAD_DEF/PONYTAIL01_DEF/PONYTAIL02_DEF
+        weight: 0
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/SPINE03_DEF/NECK_DEF/HEAD_DEF/PONYTAIL01_DEF/PONYTAIL02_DEF/PONYTAIL03_DEF
+        weight: 0
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/SPINE03_DEF/NECK_DEF/HEAD_DEF/PONYTAIL01_DEF/PONYTAIL02_DEF/PONYTAIL03_DEF/PONYTAIL03_DEF_end
+        weight: 0
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/SPINE03_DEF/NECK_DEF/HEAD_DEF/R_EYEBROW_DEF
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_DEF/SPINE02_DEF/SPINE03_DEF/NECK_DEF/HEAD_DEF/R_EYEBROW_DEF/R_EYEBROW_DEF_end
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/L_CLAVICLE_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/L_CLAVICLE_VIS/L_UPPER_ARM_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/L_CLAVICLE_VIS/L_UPPER_ARM_VIS/L_LOWERARM_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/L_CLAVICLE_VIS/L_UPPER_ARM_VIS/L_LOWERARM_VIS/L_HAND_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/L_CLAVICLE_VIS/L_UPPER_ARM_VIS/L_LOWERARM_VIS/L_HAND_VIS/L_FINGERS01_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/L_CLAVICLE_VIS/L_UPPER_ARM_VIS/L_LOWERARM_VIS/L_HAND_VIS/L_FINGERS01_VIS/L_FINGERS02_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/L_CLAVICLE_VIS/L_UPPER_ARM_VIS/L_LOWERARM_VIS/L_HAND_VIS/L_FINGERS01_VIS/L_FINGERS02_VIS/L_FINGERS03_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/L_CLAVICLE_VIS/L_UPPER_ARM_VIS/L_LOWERARM_VIS/L_HAND_VIS/L_FINGERS01_VIS/L_FINGERS02_VIS/L_FINGERS03_VIS/L_FINGERS03_VIS_end
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/L_CLAVICLE_VIS/L_UPPER_ARM_VIS/L_LOWERARM_VIS/L_HAND_VIS/L_THUMB01_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/L_CLAVICLE_VIS/L_UPPER_ARM_VIS/L_LOWERARM_VIS/L_HAND_VIS/L_THUMB01_VIS/L_THUMB02_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/L_CLAVICLE_VIS/L_UPPER_ARM_VIS/L_LOWERARM_VIS/L_HAND_VIS/L_THUMB01_VIS/L_THUMB02_VIS/L_THUMB03_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/L_CLAVICLE_VIS/L_UPPER_ARM_VIS/L_LOWERARM_VIS/L_HAND_VIS/L_THUMB01_VIS/L_THUMB02_VIS/L_THUMB03_VIS/L_THUMB03_VIS_end
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/R_CLAVICLE_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/R_CLAVICLE_VIS/R_UPPER_ARM_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/R_CLAVICLE_VIS/R_UPPER_ARM_VIS/R_LOWERARM_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/R_CLAVICLE_VIS/R_UPPER_ARM_VIS/R_LOWERARM_VIS/R_HAND_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/R_CLAVICLE_VIS/R_UPPER_ARM_VIS/R_LOWERARM_VIS/R_HAND_VIS/R_FINGERS01_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/R_CLAVICLE_VIS/R_UPPER_ARM_VIS/R_LOWERARM_VIS/R_HAND_VIS/R_FINGERS01_VIS/R_FINGERS02_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/R_CLAVICLE_VIS/R_UPPER_ARM_VIS/R_LOWERARM_VIS/R_HAND_VIS/R_FINGERS01_VIS/R_FINGERS02_VIS/R_FINGERS03_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/R_CLAVICLE_VIS/R_UPPER_ARM_VIS/R_LOWERARM_VIS/R_HAND_VIS/R_FINGERS01_VIS/R_FINGERS02_VIS/R_FINGERS03_VIS/R_FINGERS03_VIS_end
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/R_CLAVICLE_VIS/R_UPPER_ARM_VIS/R_LOWERARM_VIS/R_HAND_VIS/R_THUMB01_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/R_CLAVICLE_VIS/R_UPPER_ARM_VIS/R_LOWERARM_VIS/R_HAND_VIS/R_THUMB01_VIS/R_THUMB02_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/R_CLAVICLE_VIS/R_UPPER_ARM_VIS/R_LOWERARM_VIS/R_HAND_VIS/R_THUMB01_VIS/R_THUMB02_VIS/R_THUMB03_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/R_CLAVICLE_VIS/R_UPPER_ARM_VIS/R_LOWERARM_VIS/R_HAND_VIS/R_THUMB01_VIS/R_THUMB02_VIS/R_THUMB03_VIS/R_THUMB03_VIS_end
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/SPINE03_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/SPINE03_VIS/NECK_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/SPINE03_VIS/NECK_VIS/HEAD_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/SPINE03_VIS/NECK_VIS/HEAD_VIS/L_EYEBROW_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/SPINE03_VIS/NECK_VIS/HEAD_VIS/L_EYEBROW_VIS/L_EYEBROW_VIS_end
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/SPINE03_VIS/NECK_VIS/HEAD_VIS/R_EYEBROW_VIS
+        weight: 1
+      - path: Armature/Root/COG/SPINE01_VIS/SPINE02_VIS/SPINE03_VIS/NECK_VIS/HEAD_VIS/R_EYEBROW_VIS/R_EYEBROW_VIS_end
+        weight: 1
+      - path: colleague
+        weight: 1
+      - path: colleague_glass
+        weight: 1
+      - path: colleague_glass1
+        weight: 1
+      - path: eyebrow
+        weight: 1
+      - path: eyebrow1
+        weight: 1
+      - path: glass_stick
+        weight: 1
+      - path: glass_stick1
+        weight: 1
+      - path: glass_stick2
+        weight: 1
+      - path: ponytail
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Jumpscare
+      takeName: Armature|Action
+      internalID: -5235939474259452142
+      firstFrame: 50
+      lastFrame: 77
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Turn1
+      takeName: Armature|Action
+      internalID: -6315652410337462912
+      firstFrame: 80
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Turn2
+      takeName: Armature|Action
+      internalID: 8543038219197181831
+      firstFrame: 120
+      lastFrame: 140
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Look Back
+      takeName: Armature|Action
+      internalID: 8670918504373554664
+      firstFrame: 160
+      lastFrame: 180
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Stare Forward (walk?)
+      takeName: Armature|Action
+      internalID: -2845289716256471381
+      firstFrame: 190
+      lastFrame: 210
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
