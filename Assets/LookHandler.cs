@@ -25,6 +25,7 @@ public class LookHandler : MonoBehaviour
     private float _timeLastSwitched = 0;
 
     private bool lookingAtTable = true;
+    private bool canSwitchManually = true;
 
     private Transform _cam;
 
@@ -38,6 +39,7 @@ public class LookHandler : MonoBehaviour
     {
         _targetPoint = _tableViewPoint;
         _cam = Camera.main.transform;
+        GameManager.instance.OnPlayerCaught.AddListener(OnLose);
     }
 
     // Update is called once per frame
@@ -57,6 +59,7 @@ public class LookHandler : MonoBehaviour
         {
             _targetPoint = _collegueViewPoint;
             lookingAtTable = false;
+            MiniGameHandler.Instance.QuitMiniGame();
             _handController.DisableHand();
             _warningSignPort.EnableWarningSign();
         }
@@ -69,5 +72,30 @@ public class LookHandler : MonoBehaviour
         }
 
         _timeLastSwitched = Time.time;
+    }
+
+    private void OnLose()
+    {
+        DisableManualSwitching();
+        if(lookingAtTable)
+            SwitchView();
+    }
+
+
+    public void DisableManualSwitching()
+    {
+        if(!canSwitchManually)
+            return;
+        _input.OnLookUp -= SwitchView;
+        canSwitchManually = false;
+    }
+    
+    public void EnableManualSwitching()
+    {
+        if (canSwitchManually)
+            return;
+
+        _input.OnLookUp += SwitchView;
+        canSwitchManually= true;
     }
 }

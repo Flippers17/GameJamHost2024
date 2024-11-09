@@ -55,5 +55,9 @@ public class MiniGameHandler : MonoBehaviour
         m_CurrentMiniGame = null;
     }
 
-    public void QuitMiniGame() => m_CurrentMiniGame.Quit();
+    public void QuitMiniGame()
+    {   
+        if(m_CurrentMiniGame != null)
+            m_CurrentMiniGame.Quit();
+    }
 }

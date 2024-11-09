@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     [HideInInspector]
-    public GameManager instance;
+    public static GameManager instance;
 
     [SerializeField]
     private float _minDistractedDuration = 10f;
     [SerializeField]
     private float _maxDistractedDuration = 20f;
+    private float _currentDistractedDuration = 1f;
 
     [SerializeField]
     private float _minTimeLookingAtPlayer = 2f;
@@ -20,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private ColleagueBehaviour _colleague;
+
+    public UnityEvent OnPlayerCaught;
 
     public float _timeUntilTurning = 100f;
 
@@ -37,6 +41,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _timeUntilTurning = Random.Range(_minDistractedDuration, _maxDistractedDuration);
+        _currentDistractedDuration = _timeUntilTurning;
         _timeToLookAtPlayer = Random.Range(_minTimeLookingAtPlayer, _maxTimeLookingAtPlayer);
     }
 
@@ -50,7 +55,7 @@ public class GameManager : MonoBehaviour
 
         _timeUntilTurning -= Time.deltaTime;
 
-        ChangeWarningState();
+        ChangeWarningState(_timeUntilTurning/_currentDistractedDuration);
 
         if (_timeUntilTurning < 1)
             _colleague.LookTowardsPlayer();
@@ -76,20 +81,22 @@ public class GameManager : MonoBehaviour
     private void CatchPlayer()
     {
         _gameOver = true;
+        Debug.Log("Player got caught");
+        OnPlayerCaught?.Invoke();
     }
 
-    private void ChangeWarningState()
+    private void ChangeWarningState(float currentTimeProgress)
     {
         if (_timeUntilTurning <= 0)
         {
             _warningSignPort.ChangeStage(3);
 
         }
-        else if (_timeUntilTurning < 5f)
+        else if (currentTimeProgress < .3f)
         {
             _warningSignPort.ChangeStage(2);
         }
-        else if (_timeUntilTurning < 10f)
+        else if (currentTimeProgress < .5f)
         {
             _warningSignPort.ChangeStage(1);
         }
@@ -102,6 +109,7 @@ public class GameManager : MonoBehaviour
     private void ResetTimer()
     {
         _timeUntilTurning = Random.Range(_minDistractedDuration, _maxDistractedDuration);
+        _currentDistractedDuration = _timeUntilTurning;
         _timeToLookAtPlayer = Random.Range(_minTimeLookingAtPlayer, _maxTimeLookingAtPlayer);
 
     }
