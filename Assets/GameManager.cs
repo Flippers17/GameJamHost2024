@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     private float _maxTimeLookingAtPlayer = 2f;
     private float _timeToLookAtPlayer = 0;
 
+    [SerializeField] private Light[] lights;
+    [SerializeField] private int loseSceneIndex = 2;
 
     public UnityEvent OnPlayerCaught;
 
@@ -83,9 +85,22 @@ public class GameManager : MonoBehaviour
 
     private void CatchPlayer()
     {
+        foreach (var light in lights)
+        {
+            light.color = Color.red;
+        }
+
         _gameOver = true;
         Debug.Log("Player got caught");
         OnPlayerCaught?.Invoke();
+
+        StartCoroutine(Scare());
+    }
+
+    private IEnumerator Scare()
+    {
+        yield return new WaitForSeconds(1);
+        SceneLoader.LoadSceneMode(loseSceneIndex);
     }
 
     private void ChangeWarningState(float currentTimeProgress)
