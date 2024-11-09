@@ -37,8 +37,12 @@ public class ColleagueBehaviour : MonoBehaviour
 
     private void JumpScare()
     {
-        transform.position = _jumpscarePos.position;
-        transform.rotation = _jumpscarePos.rotation;
+        if (_jumpscarePos)
+        {
+            transform.position = _jumpscarePos.position;
+            transform.rotation = _jumpscarePos.rotation;
+        }
+        
         _anim.SetTrigger("Jumpscare");
     }
 
