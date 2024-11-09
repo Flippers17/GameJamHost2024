@@ -3585,6 +3585,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ef2422f0e0e0448b43d1a4d72001ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warningSignPort: {fileID: 11400000, guid: 382fb3b0201e95f41b7ee988f14dabca, type: 2}
+  _anim: {fileID: 8826060719014617164}
 --- !u!1 &8858713506805023966
 GameObject:
   m_ObjectHideFlags: 0
