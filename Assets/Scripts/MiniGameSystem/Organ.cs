@@ -5,7 +5,9 @@ public class Organ : PickUpable
     public ToolType TriggerType => toolType;
     public bool Finished => m_Finished;
     public bool IsMiniGameActive => m_MiniGame;
+    public float Points => points;
 
+    [SerializeField] private float points = 1;
     [SerializeField] private MiniGame miniGamePrefab;
     [SerializeField] private ToolType toolType;
 

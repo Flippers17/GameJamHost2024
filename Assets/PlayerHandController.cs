@@ -112,7 +112,7 @@ public class PlayerHandController : MonoBehaviour
         _pickUpHandler.PickUpItem(item);
     }
 
-    private void DropItem()
+    public void DropItem()
     {
         if (!_pickUpHandler.holdingItem || !canMoveHand)
             return;
