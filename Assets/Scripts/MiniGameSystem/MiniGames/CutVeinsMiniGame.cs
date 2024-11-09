@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CutVeinsMiniGame : MiniGameBase
+public class CutVeinsMiniGame : MiniGame
 {
     [Header("Objects")]
     [SerializeField] private Image progressBar;
@@ -11,12 +9,7 @@ public class CutVeinsMiniGame : MiniGameBase
 
     private int buttonsClicked = 0;
 
-    private void Start()
-    {
-        OnStart();
-    }
-
-    public override void OnStart()
+    public override void OnStart(PlayerHandController controller)
     {
         foreach (var button in veinButtons)
             button.onClick.AddListener(OnVeinButtonClicked);
@@ -36,7 +29,7 @@ public class CutVeinsMiniGame : MiniGameBase
 
         if(buttonsClicked == veinButtons.Length)
         {
-            Debug.Log("Finished!");
+            onCompletedSuccesfully?.Invoke();
         }
     }
 }

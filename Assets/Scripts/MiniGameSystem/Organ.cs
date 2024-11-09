@@ -1,24 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Organ : MonoBehaviour
+public class Organ : PickUpable
 {
-    public MiniGameBase miniGamePrefab;
+    public ToolType TriggerType => triggerType;
 
-    private MiniGameBase m_MiniGame;
+    [SerializeField] private MiniGame miniGamePrefab;
+    [SerializeField] private ToolType triggerType;
 
-    //TODO: Send arm in as parameter when starting mini game
-    public void StartMiniGame()
+    private MiniGame m_MiniGame;
+
+    public void StartMiniGame(PlayerHandController controller)
     {
         if (!miniGamePrefab)
         {
-            Debug.LogWarning("Trying to start mini-game that does not exits!", this);
+            Debug.LogWarning("No miniGamePrefab set!", this);
             return;
         }
 
         m_MiniGame = Instantiate(miniGamePrefab);
 
-        miniGamePrefab.OnStart();
+        m_MiniGame.onCompletedSuccesfully += OnSucceesfullyCompleted;
+
+        m_MiniGame.OnStart(controller);
+    }
+
+    private void OnSucceesfullyCompleted()
+    {
+        m_MiniGame.onCompletedSuccesfully -= OnSucceesfullyCompleted;
     }
 }
