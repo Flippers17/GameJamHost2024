@@ -123,12 +123,16 @@ public class PlayerHandController : MonoBehaviour
 
     public void DisableHand()
     {
+        if (!canMoveHand)
+            return;
         canMoveHand = false;
         _input.OnInteract -= TryInteract;
     }
 
     public void EnableHand()
     {
+        if(canMoveHand)
+            return ;
         canMoveHand = true;
         _input.OnInteract += TryInteract;
     }
