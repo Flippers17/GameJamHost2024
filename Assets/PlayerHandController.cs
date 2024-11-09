@@ -118,7 +118,11 @@ public class PlayerHandController : MonoBehaviour
     public void PickUpItem(PickUpable item)
     {
         if (_pickUpHandler.holdingItem || !canMoveHand || !item.canBePickedUp)
+        {    
+            if (item.UpdateOnPickUp)
+                item.OnPickUp();
             return;
+        }
 
         _handAnim.SetBool("Closed", true);
         _pickUpHandler.PickUpItem(item);
