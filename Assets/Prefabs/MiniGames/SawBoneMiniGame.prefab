@@ -358,9 +358,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb77b8c4219eaa24a85983862da0ca3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSpeed: 0.05
-  maxZ: 5
-  minZ: -5
+  neededProgress: 100
+  _progressFill: {fileID: 6162691104976243544}
+  handMoveSpeedModifier: 50
+  progressionModifier: 1
+  _maxMovement: 5
   mouseDelta:
     m_Name: Mouse Delta
     m_Type: 0
@@ -378,4 +380,3 @@ MonoBehaviour:
       m_Action: Mouse Delta
       m_Flags: 0
     m_Flags: 0
-  progressBar: {fileID: 6162691104976243544}

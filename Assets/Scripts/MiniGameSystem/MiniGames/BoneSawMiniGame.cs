@@ -4,25 +4,23 @@ using UnityEngine.UI;
 
 public class BoneSawMiniGame : MiniGame
 {
-    [SerializeField] private float mouseSpeed = 0.05f;
-    [SerializeField] private float maxZ;
-    [SerializeField] private float minZ;
+    [SerializeField] private float handMoveSpeedModifier = 1f;
+    [SerializeField] private float progressionModifier = 1f;
+    [SerializeField]
+    private float _maxMovement = 3f;
+    private float _remainingMovement = 0;
+
+    private Vector2 currentSawDirection;
 
     [Header("Actions")]
     [SerializeField] private InputAction mouseDelta;
-
-    [Header("Objects")]
-    [SerializeField] private Image progressBar;
-
-    private float m_CurrentZValue;
-    private float m_LastZValue;
-    private float m_Progression;
-    bool min = false;
 
     public override void OnStart(PlayerHandController controller, Organ organ)
     {
         base.OnStart(controller, organ);
 
+        currentSawDirection = new Vector2(0, 1);
+        _remainingMovement = _maxMovement / 2;
         mouseDelta.performed += OnMouseDelta;
         mouseDelta.Enable();
     }
@@ -34,41 +32,22 @@ public class BoneSawMiniGame : MiniGame
 
     private void OnMouseDelta(InputAction.CallbackContext ctx)
     {
+        float progressionMade = Vector2.Dot(ctx.ReadValue<Vector2>(), currentSawDirection.normalized) * Time.deltaTime * progressionModifier;
 
-        if (ctx.ReadValue<Vector2>().y * mouseSpeed < 0 && !min)
-            return;
-        else if (ctx.ReadValue<Vector2>().y * mouseSpeed > 0 && min)
-            return;
-
-        m_CurrentZValue += ctx.ReadValue<Vector2>().y * mouseSpeed;
-        
-        if(m_CurrentZValue > maxZ && min)
-        { 
-            m_CurrentZValue = maxZ;
-            min = !min;
-        }
-        else if (m_CurrentZValue < minZ && !min)
+        if(progressionMade < 0)
         {
-            m_CurrentZValue = minZ;
-            min = !min;
+            currentSawDirection = -currentSawDirection;
+            progressionMade = -progressionMade;
+            _remainingMovement = _maxMovement - _remainingMovement;
         }
-
-        Debug.Log(Mathf.Abs(m_LastZValue - m_CurrentZValue) * Time.deltaTime);
-
-
-
-        if(m_CurrentZValue < maxZ && m_CurrentZValue > minZ)
+        else
         {
-            Debug.Log("Adding!");
-            m_Progression += 0.5f * Time.deltaTime;
-            progressBar.fillAmount = m_Progression;
-
-            if(m_Progression >= 1)
-            {
-                //Win();
-            }
-            m_LastZValue = m_CurrentZValue;
+            progressionMade = Mathf.Min(_remainingMovement, progressionMade);
+            _remainingMovement -= progressionMade;
         }
+
+        playerHand.MoveHand(currentSawDirection.normalized * (progressionMade * handMoveSpeedModifier));
+        IncreaseProgress(progressionMade);
 
     }
 }

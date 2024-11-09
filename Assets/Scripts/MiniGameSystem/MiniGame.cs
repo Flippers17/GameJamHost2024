@@ -1,10 +1,17 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public abstract class MiniGame : MonoBehaviour
 {
     public UnityAction onWin;
     public UnityAction onLost;
+
+    [SerializeField]
+    protected float neededProgress = 100;
+    protected float progress = 0;
+    [SerializeField]
+    private Image _progressFill;
 
     protected PlayerHandController playerHand;
     protected Organ organ;
@@ -31,6 +38,17 @@ public abstract class MiniGame : MonoBehaviour
         onLost?.Invoke();
         Destroy(gameObject);
     }
+    
+
+    public virtual void IncreaseProgress(float amount)
+    {
+        progress += amount;
+
+        _progressFill.fillAmount = progress/neededProgress;
+        if(progress > neededProgress)
+            Win();
+    }
+
 
     public void Quit()
     {
