@@ -1816,7 +1816,7 @@ MonoBehaviour:
     height: 2.31
   handHeight: 2.7
   handMoveSpeed: 1
-  _pickUpRadius: 1.65
+  _pickUpRadius: 0.3
   _pickUpHandler:
     currentItem: {fileID: 0}
     lerpSpeed: 100
