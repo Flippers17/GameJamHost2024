@@ -41,6 +41,10 @@ public abstract class MiniGame : MonoBehaviour
     {
         playerHand.EnableHand();
         playerHand.LoseMiniagemAnim();
+
+        if (CameraShake.s_Initialized)
+            CameraShake.TriggerShake(0.5f, 0.2f, 0.1f);
+
         onLost?.Invoke();
         Destroy(gameObject);
     }

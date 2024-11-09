@@ -6,4 +6,6 @@ public class PointsManager : ScriptableObject
     public float points;
 
     public void AddPoints(float amount) => points += amount;
+
+    public void ResetScore()  => points = 0;
 }
