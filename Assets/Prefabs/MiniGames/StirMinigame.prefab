@@ -322,9 +322,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3304103303681866568}
-  - component: {fileID: 3304103303681866569}
+  - component: {fileID: 219933746973553118}
   m_Layer: 0
-  m_Name: ShakeMiniGame
+  m_Name: StirMinigame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -346,7 +346,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3304103303681866569
+--- !u!114 &219933746973553118
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -355,31 +355,58 @@ MonoBehaviour:
   m_GameObject: {fileID: 3304103303681866570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71ea6aa992507de4abde6ac9cc8f2e9c, type: 3}
+  m_Script: {fileID: 11500000, guid: c9b9629dcd3f3374880195c72b54c290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   neededProgress: 100
   _progressFill: {fileID: 3304103303207585469}
-  _animationState: MinigameState
-  radius: 50
-  shakeStrenght: 5
-  _handMovementMultiplier: 1
-  _shakeRewardMultiplier: 5
-  progressbar: {fileID: 3304103303207585469}
-  mouseDelta:
-    m_Name: Mouse Delta
+  _animationState: 
+  quickTimeValue:
+    m_Name: Quick Time Value
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 254f471d-a016-44ec-a576-da63da5dd4a9
+    m_Id: eecb3949-5699-469e-acfc-edd1f3391b49
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 78a5bbb2-a44c-4ec1-9461-0a7161fe5678
-      m_Path: <Mouse>/delta
+    - m_Name: 2D Vector
+      m_Id: 4aeef1f8-5589-488c-b47a-962965095c9f
+      m_Path: 2DVector
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Mouse Delta
-      m_Flags: 0
+      m_Action: Quick Time Value
+      m_Flags: 4
+    - m_Name: up
+      m_Id: fe431a4e-3834-43ad-a4c1-e21333737e75
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Quick Time Value
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 539ff0fa-2d80-4d4d-8d28-f96b84a8d886
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Quick Time Value
+      m_Flags: 8
+    - m_Name: left
+      m_Id: ac9a86d4-ce04-4252-a4ac-a3d6d1eefc64
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Quick Time Value
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 617fda95-75c0-49b5-917a-e4a7f56a5040
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Quick Time Value
+      m_Flags: 8
     m_Flags: 0

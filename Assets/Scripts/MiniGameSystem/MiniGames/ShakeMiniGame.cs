@@ -41,12 +41,12 @@ public class ShakeMiniGame : MiniGame
 
     private void OnMousePoition(InputAction.CallbackContext obj)
     {
-        Vector2 movement = obj.ReadValue<Vector2>();
+        Vector2 movement = obj.ReadValue<Vector2>().normalized * shakeStrenght;
         if(Vector2.Dot(movement, _lastDragDir) < 0)
             movement *= _shakeRewardMultiplier;
 
         _lastDragDir = movement;
-        Vector2 newPos = (Vector2)organ.transform.position + (movement * shakeStrenght * Time.deltaTime);
+        Vector2 newPos = (Vector2)organ.transform.position + (movement * Time.deltaTime);
 
         
 
