@@ -210,6 +210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBePickedUp: 0
+  corpsePrefab: {fileID: 0}
+  table: {fileID: 0}
   animator: {fileID: 0}
   moveAwayAnimTime: 2
 --- !u!1 &4859153625007498553
@@ -238,7 +240,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4859153625007498553}
   m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.7071079}
-  m_LocalPosition: {x: 0, y: 0, z: -4.4746275}
+  m_LocalPosition: {x: 0, y: 0, z: -0.712}
   m_LocalScale: {x: 1.8505496, y: 1.8505497, z: 9.840731}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -247,7 +249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.7957363, y: 1.1808882}
+  m_AnchoredPosition: {x: -0.004, y: 1.1808882}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4859153625007497926
@@ -375,7 +377,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 9.968774, y: 0, z: 9.120469, w: 3.5034475}
+  m_margin: {x: 9.531754, y: 2.028942, z: 9.538519, w: 2.0418627}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
