@@ -9,6 +9,8 @@ public class StirMiniGame : MiniGame
     [SerializeField]
     private InputAction quickTimeValue;
     private Vector2 targetPress = new Vector2(1, 0);
+    [SerializeField]
+    private float handMoveMultiplier = 5f;
 
     [SerializeField]
     List<StirButton> buttons = new List<StirButton>();
@@ -31,19 +33,17 @@ public class StirMiniGame : MiniGame
         quickTimeValue.performed -= OnInput;
     }
 
-    private void Update()
-    {
-        
-    }
 
     private void OnInput(InputAction.CallbackContext context)
     {
         if(Time.time < _timeLastPressed + _delayBetweenInputs)
             return;
 
-        if (context.ReadValue<Vector2>().x * targetPress.x != 1 && context.ReadValue<Vector2>().y * targetPress.y != 1)
+        if (context.ReadValue<Vector2>().x * targetPress.x <= 0 && context.ReadValue<Vector2>().y * targetPress.y <= 0)
             return;
 
+        playerHand.MoveHand(targetPress * handMoveMultiplier * (progress / neededProgress));
+        organ.MoveOrgan(targetPress * handMoveMultiplier * (progress / neededProgress));
         IncreaseProgress(1);
         _timeLastPressed = Time.time;
         GoToNextTargetPress();

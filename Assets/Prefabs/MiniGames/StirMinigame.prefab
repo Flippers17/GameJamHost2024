@@ -648,9 +648,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b9629dcd3f3374880195c72b54c290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neededProgress: 100
+  neededProgress: 20
   _progressFill: {fileID: 3304103303207585469}
-  _animationState: 
+  _animationState: MinigameState
   quickTimeValue:
     m_Name: Quick Time Value
     m_Type: 0
@@ -700,6 +700,7 @@ MonoBehaviour:
       m_Action: Quick Time Value
       m_Flags: 8
     m_Flags: 0
+  handMoveMultiplier: 15
   buttons:
   - buttonObject: {fileID: 5627034056202572643}
     position: {x: 0, y: 1}
