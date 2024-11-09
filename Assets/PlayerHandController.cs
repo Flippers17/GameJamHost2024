@@ -35,13 +35,13 @@ public class PlayerHandController : MonoBehaviour
     private void OnEnable()
     {
         handPos.position = new Vector3(boundary.x, handHeight, boundary.y);
-        _input.OnInteract += TryPickup;
+        _input.OnInteract += TryInteract;
         _input.OnDrop += DropItem;
     }
 
     private void OnDisable()
     {
-        _input.OnInteract -= TryPickup;
+        _input.OnInteract -= TryInteract;
         _input.OnDrop -= DropItem;
     }
 
@@ -66,10 +66,10 @@ public class PlayerHandController : MonoBehaviour
     }
 
 
-    private void TryPickup()
+    private void TryInteract()
     {
-        if(!canMoveHand)
-            return;
+        //if(!canMoveHand)
+        //    return;
 
         if (_pickUpHandler.holdingItem)
         {
@@ -122,11 +122,13 @@ public class PlayerHandController : MonoBehaviour
     public void DisableHand()
     {
         canMoveHand = false;
+        _input.OnInteract -= TryInteract;
     }
 
     public void EnableHand()
     {
         canMoveHand = true;
+        _input.OnInteract += TryInteract;
     }
 
 
