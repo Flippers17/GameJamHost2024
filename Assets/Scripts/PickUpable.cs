@@ -6,6 +6,9 @@ public class PickUpable : MonoBehaviour
 {
     public bool canBePickedUp = true;
 
+    public bool UpdateOnPickUp => updateOnPickUp;
+    protected bool updateOnPickUp = false;
+
     private Rigidbody rb;
 
     public void OnEnable()
