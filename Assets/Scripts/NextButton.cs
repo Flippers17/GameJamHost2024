@@ -31,7 +31,8 @@ public class NextButton : PickUpable
 
         yield return new WaitForSeconds(moveAwayAnimTime);
 
-        Destroy(table.GetChild(0).gameObject);
+        if(table.childCount > 0)
+            Destroy(table.GetChild(0).gameObject);
 
         Vector3 spawnPos = new Vector3(table.position.x, corpsePrefab.transform.position.y, table.position.z);
         OrganSpawner spawner = Instantiate(corpsePrefab, spawnPos, corpsePrefab.transform.rotation);
