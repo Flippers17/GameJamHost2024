@@ -9,8 +9,10 @@ public class CutVeinsMiniGame : MiniGame
 
     private int buttonsClicked = 0;
 
-    public override void OnStart(PlayerHandController controller)
+    public override void OnStart(PlayerHandController controller, Organ organ)
     {
+        base.OnStart(controller, organ);
+
         foreach (var button in veinButtons)
             button.onClick.AddListener(OnVeinButtonClicked);
     }
@@ -29,7 +31,7 @@ public class CutVeinsMiniGame : MiniGame
 
         if(buttonsClicked == veinButtons.Length)
         {
-            onCompletedSuccesfully?.Invoke();
+            Win();
         }
     }
 }

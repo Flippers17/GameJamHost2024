@@ -18,11 +18,11 @@ public class ShakeMiniGame : MiniGame
 
     private float m_Progress = 0;
     private Vector2 m_OrganStartPos;
-    private PlayerHandController m_Hand;
 
-    public override void OnStart(PlayerHandController controller)
+    public override void OnStart(PlayerHandController controller, Organ organ)
     {
-        m_Hand = controller;
+        base.OnStart(controller, organ);
+
         mouseDelta.Enable();
         mouseDelta.performed += OnMousePoition;
         m_OrganStartPos = organTransform.position;
@@ -43,13 +43,14 @@ public class ShakeMiniGame : MiniGame
             organTransform.position = add;
 
             m_Progress += delta.magnitude * Time.deltaTime;
-            //m_Hand.transform.position = (Vector2)m_Hand.transform.position + delta.normalized * shakeStrenght;
+            playerHand.MoveHand(delta.normalized);
+            organ.MoveOrgan(delta.normalized * m_Progress / maxProgress);
 
             progressbar.fillAmount = m_Progress / maxProgress;
 
             if(m_Progress >= maxProgress)
             {
-                onCompletedSuccesfully?.Invoke();
+                Win();
             }
         }
     }

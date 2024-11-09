@@ -1,13 +1,20 @@
+using UnityEditor;
 using UnityEngine;
 
 public class Organ : PickUpable
 {
-    public ToolType TriggerType => triggerType;
+    public ToolType TriggerType => toolType;
 
     [SerializeField] private MiniGame miniGamePrefab;
-    [SerializeField] private ToolType triggerType;
+    [SerializeField] private ToolType toolType;
 
     private MiniGame m_MiniGame;
+    private Transform m_Transform;
+
+    private void OnEnable()
+    {
+        m_Transform = transform;
+    }
 
     public void StartMiniGame(PlayerHandController controller)
     {
@@ -18,14 +25,18 @@ public class Organ : PickUpable
         }
 
         m_MiniGame = Instantiate(miniGamePrefab);
+        MiniGameHandler.Instance.SetMiniGame(m_MiniGame);
 
-        m_MiniGame.onCompletedSuccesfully += OnSucceesfullyCompleted;
-
-        m_MiniGame.OnStart(controller);
+        m_MiniGame.OnStart(controller, this);
     }
 
-    private void OnSucceesfullyCompleted()
+    public void MoveOrgan(Vector3 movement)
     {
-        m_MiniGame.onCompletedSuccesfully -= OnSucceesfullyCompleted;
+        Vector3 newPos = m_Transform.position;
+        newPos += new Vector3(movement.x, 0, movement.y) * Time.deltaTime;
+
+        Debug.Log(movement);
+
+        m_Transform.position = newPos;
     }
 }

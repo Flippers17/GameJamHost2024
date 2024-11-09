@@ -3,24 +3,50 @@ using UnityEngine.Events;
 
 public class MiniGameHandler : MonoBehaviour
 {
-    public UnityEvent OnSuccesfulMiniGame;
-    public UnityEvent OnUnsuccesfulMiniGame;
+    public static MiniGameHandler Instance;
 
     private MiniGame m_CurrentMiniGame;
 
-    public void SetMiniGame(MiniGame game) => m_CurrentMiniGame = game;
-    public void SetMiniGameAndStart(MiniGame game)
+    private void OnEnable()
     {
-        m_CurrentMiniGame = game;
-        StartMiniGame();
+        if (!Instance)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("Too many " + typeof(MiniGameHandler).Name + " in scene!", this);
+            Destroy(gameObject);
+        }
     }
 
-    public void StartMiniGame()
+    private void OnDisable()
     {
-        if (!m_CurrentMiniGame)
-        {
-            Debug.LogWarning($"Trying to start a mini game that does not exits!", this);
-            return;
-        }
+        UnsubscribeMiniGame();
+    }
+
+    public void SetMiniGame(MiniGame game)
+    {
+        if (m_CurrentMiniGame)
+            UnsubscribeMiniGame();
+
+        m_CurrentMiniGame = game;
+        m_CurrentMiniGame.onWin += OnWinMiniGame;
+        m_CurrentMiniGame.onLost += OnLostMiniGame;
+    }
+
+    private void UnsubscribeMiniGame()
+    {
+        m_CurrentMiniGame.onWin -= OnWinMiniGame;
+        m_CurrentMiniGame.onLost -= OnLostMiniGame;
+    }
+
+    private void OnWinMiniGame()
+    {
+        
+    }
+    private void OnLostMiniGame()
+    {
+
     }
 }
