@@ -153,7 +153,7 @@ public class PlayerHandController : MonoBehaviour
     public void PlayMinigameAnimation(string stateName)
     {
         _handAnim.SetBool("In Minigame", true);
-        _handAnim.Play(stateName);
+        _handAnim.Play(stateName, 0);
     }
 
     public void WinMinigameAnim()
