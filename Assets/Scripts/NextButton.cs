@@ -3,14 +3,11 @@ using UnityEngine;
 
 public class NextButton : PickUpable
 {
+    [SerializeField] private OrganSpawner corpsePrefab;
+    [SerializeField] private Transform table;
     [SerializeField] private Animator animator;
     [SerializeField] private float moveAwayAnimTime = 2;
 
-    [SerializeField][Tooltip("The time it takes for the animation that takes away the body")] 
-    private float higherAnimTime = 1f;
-    private float currentLerpTime = 0;
-
-    private bool moveAway = false;
     private bool active = false;
 
     public new void OnEnable()
@@ -21,47 +18,31 @@ public class NextButton : PickUpable
 
     public override void OnPickUp()
     {
-        //if (active)
-        //    return;
+        if (active)
+            return;
 
-        //if (!moveAway)
-        //{
-        //    moveAway = true;
-        //}
-        //else
-        //{
-        //    moveAway = false;
-        //}
-
-        //active = true;
-        //currentLerpTime = 0;
-
-        animator.SetBool("GettingNewCorpse", true);
+        StartCoroutine(GetNewCorpse());
     }
 
-    //private void Update()
-    //{
-    //    if (!active)
-    //        return;
+    private IEnumerator GetNewCorpse()
+    {
+        active = true;
+        animator.SetBool("GettingNewCorpse", true);
 
-    //    if (moveAway && lerpMoveTime > currentLerpTime)
-    //    {
-    //        table.position = Vector3.Lerp(table.position, tableAwayPos.position, currentLerpTime);
+        yield return new WaitForSeconds(moveAwayAnimTime);
 
-    //        currentLerpTime += Time.deltaTime;
-    //    }
-    //    else if (!moveAway && lerpMoveTime > currentLerpTime)
-    //    {
-    //        table.position = Vector3.Lerp(table.position, tablePos.position, currentLerpTime);
+        if(table.childCount > 0)
+            Destroy(table.GetChild(0).gameObject);
 
-    //        currentLerpTime += Time.deltaTime;
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("Done!");
-    //        active = false;
-    //    }
-    //}
+        Vector3 spawnPos = new Vector3(table.position.x, corpsePrefab.transform.position.y, table.position.z);
+        OrganSpawner spawner = Instantiate(corpsePrefab, spawnPos, corpsePrefab.transform.rotation);
+        spawner.RandomizeOrgan();
+        spawner.transform.parent = table;
+
+
+        animator.SetBool("GettingNewCorpse", false);
+        active = false;
+    }
 
     public override void OnDrop()
     {
