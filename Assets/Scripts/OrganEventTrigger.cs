@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 public enum ToolType
 {
@@ -12,24 +9,26 @@ public enum ToolType
 public class OrganEventTrigger : MonoBehaviour
 {
     [SerializeField]
-    private ToolType _triggerType;
+    private ToolType _toolType;
 
     [SerializeField]
     private Transform _triggerPoint;
     [SerializeField]
     private Vector3 _size;
 
-    public void TryGetOrgan()
+    public void TryGetOrgan(PlayerHandController controller)
     {
         Collider[] possibleOrgans = Physics.OverlapBox(_triggerPoint.position, _size);
 
         for(int i = 0; i < possibleOrgans.Length; i++)
         {
-            //if (possibleOrgans[i].TryGetComponent(out Organ organ))
-            //{
-            //    if(organ.triggerType == _triggerType)
-            //        //trigger
-            //}
+            if (possibleOrgans[i].TryGetComponent(out Organ organ))
+            {
+                if(organ.TriggerType == _toolType)
+                {
+                    organ.StartMiniGame(controller);
+                }
+            }
         }
     }
 }

@@ -2775,6 +2775,7 @@ GameObject:
   - component: {fileID: 1790512374}
   - component: {fileID: 1790512373}
   - component: {fileID: 1790512377}
+  - component: {fileID: 1790512378}
   m_Layer: 0
   m_Name: Organ
   m_TagString: Untagged
@@ -2877,6 +2878,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1790512378
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790512372}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 2, z: 0.9999999}
+  m_Center: {x: 0, y: -0.0000009536743, z: 0}
 --- !u!1 &1923158632
 GameObject:
   m_ObjectHideFlags: 0
@@ -2916,9 +2930,9 @@ MonoBehaviour:
     y: -8
     width: 3.63
     height: 2.31
-  handHeight: 0.5
+  handHeight: 0.8
   handMoveSpeed: 1
-  _pickUpRadius: 1.65
+  _pickUpRadius: 1
   _pickUpHandler:
     currentItem: {fileID: 0}
     lerpSpeed: 100
