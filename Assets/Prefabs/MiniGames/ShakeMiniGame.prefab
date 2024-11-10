@@ -360,7 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neededProgress: 15
   _progressFill: {fileID: 3304103303207585469}
-  _animationState: MinigameState
+  _animationState: 
   radius: 50
   shakeStrenght: 2
   _handMovementMultiplier: 0.3
