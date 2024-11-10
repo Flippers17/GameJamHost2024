@@ -4,6 +4,7 @@ public class Mouth : MonoBehaviour
 {
     [SerializeField] private PointsManager pointsManager;
     [SerializeField] private ParticleSystem bloodSplat;
+    [SerializeField] private AudioSource eatingAudio;
 
     private PlayerHandController m_PlayerHandController;
 
@@ -27,6 +28,7 @@ public class Mouth : MonoBehaviour
 
             pointsManager.AddPoints(organ.Points);
             bloodSplat.Play();
+            eatingAudio.Play();
             Destroy(organ.gameObject);
         }
     }
