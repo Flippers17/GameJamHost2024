@@ -727,7 +727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neededProgress: 20
   _progressFill: {fileID: 3304103303207585469}
-  _animationState: MinigameState
+  _animationState: 
   quickTimeValue:
     m_Name: Quick Time Value
     m_Type: 0
