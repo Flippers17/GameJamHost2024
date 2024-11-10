@@ -378,7 +378,7 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 0
     m_Flags: 0
-  safeRadius: 2
+  safeRadius: 0.5
   _movementSpeed: 1
   driftSpeed: 0.2
   _loseProgressMultiplier: 2
