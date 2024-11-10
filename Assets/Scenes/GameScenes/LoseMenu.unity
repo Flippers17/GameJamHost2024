@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsManager: {fileID: 11400000, guid: ade2455fce44b0c478fadca1ac76965f, type: 2}
   scoreText: {fileID: 1546337616}
-  highScoreText: {fileID: 0}
+  highScoreText: {fileID: 1936422196}
 --- !u!4 &391503689
 Transform:
   m_ObjectHideFlags: 0
