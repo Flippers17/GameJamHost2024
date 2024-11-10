@@ -49,6 +49,7 @@ MonoBehaviour:
   _progressFill: {fileID: 0}
   _animationState: 
   detectionRadius: 0.2
+  detectionArea: {x: 1, y: 3, z: 1}
   mouseSpeed: 0.1
   leftMouseButton:
     m_Name: Left Mouse Button

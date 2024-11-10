@@ -6,6 +6,7 @@ public class CutVeinsMiniGame : MiniGame
 {
     [Header("Parameters")]
     [SerializeField] private float detectionRadius = 0.2f;
+    [SerializeField] private Vector3 detectionArea;
     [SerializeField] private float mouseSpeed = 0.1f;
 
     [Header("Actions")]
@@ -73,9 +74,10 @@ public class CutVeinsMiniGame : MiniGame
             return;
         }
 
-        Collider[] cols = Physics.OverlapSphere(playerHand.HandTransform.position, detectionRadius);
+        //Collider[] cols = Physics.OverlapSphere(playerHand.HandTransform.position, detectionRadius);
+        Collider[] cols = Physics.OverlapBox(playerHand.HandTransform.position, detectionArea);
 
-        foreach(Collider col in cols)
+        foreach (Collider col in cols)
         {
             if(col.TryGetComponent(out VeinMiniGame vein) && !vein.Clicked)
             {
