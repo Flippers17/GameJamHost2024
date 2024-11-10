@@ -304,7 +304,7 @@ MonoBehaviour:
   points: 2
   miniGamePrefab: {fileID: -2997019670292985165, guid: 96f4ce1681f792342b88379b193a0090,
     type: 3}
-  toolType: 0
+  toolType: 2
 --- !u!65 &8928757969305242409
 BoxCollider:
   m_ObjectHideFlags: 0
