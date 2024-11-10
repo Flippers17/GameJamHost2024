@@ -12,7 +12,7 @@ public class PlayerHandController : MonoBehaviour
     [SerializeField]
     private Transform _handMesh;
     [SerializeField]
-    private Vector3 _meshOffset;
+    public Vector3 _meshOffset;
     [SerializeField]
     private Animator _handAnim;
 
