@@ -28,6 +28,7 @@ public abstract class MiniGame : MonoBehaviour
 
     protected virtual void Win()
     {
+        organ.GetComponent<Rigidbody>().isKinematic = false;
         playerHand.EnableHand();
         organ.SetFinished();
         organ.canBePickedUp = true;
@@ -39,6 +40,7 @@ public abstract class MiniGame : MonoBehaviour
 
     protected virtual void Lose()
     {
+        //organ.GetComponent<Rigidbody>().isKinematic = false;
         playerHand.EnableHand();
         playerHand.LoseMiniagemAnim();
 

@@ -1,8 +1,3 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Diagnostics.Tracing;
 using UnityEngine;
 
 public class PlayerHandController : MonoBehaviour
@@ -35,7 +30,7 @@ public class PlayerHandController : MonoBehaviour
     private float handMoveSpeed = 3f;
 
     [Space(15), SerializeField]
-    private float _pickUpRadius = .3f;
+    private Vector3 _pickupBoxSize = new Vector3(.5f, .5f, .5f);
 
     [SerializeField]
     private PickUpHandler _pickUpHandler = new PickUpHandler();
@@ -102,7 +97,7 @@ public class PlayerHandController : MonoBehaviour
             return;
         }
 
-        Collider[] objects = Physics.OverlapSphere(handPos.position, _pickUpRadius);
+        Collider[] objects = Physics.OverlapBox(handPos.position, _pickupBoxSize/2);
 
         for(int i = 0; i < objects.Length; i++)
         {
@@ -154,6 +149,16 @@ public class PlayerHandController : MonoBehaviour
         _input.OnInteract += TryInteract;
     }
 
+    public Vector2 GetHandPos()
+    {
+        return new Vector2(handPos.position.x, handPos.position.z);
+    }
+
+    public float GetHandHeight()
+    {
+        return handHeight;
+    }
+
 
     public void PlayMinigameAnimation(string stateName)
     {
@@ -183,6 +188,6 @@ public class PlayerHandController : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(new Vector3(boundary.position.x, handHeight, boundary.position.y), new Vector3(boundary.width, 1, boundary.height));
 
-        Gizmos.DrawWireSphere(handPos.position, _pickUpRadius);
+        Gizmos.DrawWireCube(handPos.position, _pickupBoxSize);
     }
 }

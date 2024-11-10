@@ -12,10 +12,7 @@ public class OrganSpawner : MonoBehaviour
 
             if(chance <= organInfo.spawnChance)
             {
-                GameObject obj = Instantiate(organInfo.organPrefab, organInfo.organPos.position, organInfo.organPrefab.transform.rotation);
-
-                obj.transform.parent = organInfo.organPos;
-
+                Instantiate(organInfo.organPrefab, organInfo.organPos.position, organInfo.organPos.rotation, organInfo.organPos);
             }
         }
     }
