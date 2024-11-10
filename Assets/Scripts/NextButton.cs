@@ -6,6 +6,7 @@ public class NextButton : PickUpable
     [SerializeField] private OrganSpawner corpsePrefab;
     [SerializeField] private Transform parent;
     [SerializeField] private Animator animator;
+    [SerializeField] private NewCorpsePort newCorpsePort;
     [SerializeField] private float moveAwayAnimTime = 2;
 
     private bool active = false;
@@ -41,6 +42,10 @@ public class NextButton : PickUpable
 
 
         animator.SetBool("GettingNewCorpse", false);
+
+        yield return new WaitForSeconds(moveAwayAnimTime);
+        newCorpsePort?.InvokePort();
+
         active = false;
     }
 

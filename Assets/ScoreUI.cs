@@ -28,5 +28,4 @@ public class ScoreUI : MonoBehaviour
     {
         scoreText.text = "Score: " + score;
     }
-
 }

@@ -211,8 +211,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePickedUp: 0
   corpsePrefab: {fileID: 0}
-  table: {fileID: 0}
+  parent: {fileID: 0}
   animator: {fileID: 0}
+  newCorpsePort: {fileID: 11400000, guid: 67a87fe786c3db34e903bee70469e134, type: 2}
   moveAwayAnimTime: 2
 --- !u!1 &4859153625007498553
 GameObject:
