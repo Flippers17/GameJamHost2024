@@ -246,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePickedUp: 0
   points: 1
-  miniGamePrefab: {fileID: 3304103303681866569, guid: 3268e8ec29bd15b45bd4091f3299a122,
+  miniGamePrefab: {fileID: 219933746973553118, guid: bae1c4ef3a1108f4a9a430a48d621250,
     type: 3}
   toolType: 0
 --- !u!1001 &5205755368115028251
