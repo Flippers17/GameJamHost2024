@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraShake : MonoBehaviour
 {
@@ -10,9 +11,10 @@ public class CameraShake : MonoBehaviour
 
     public static bool s_Initialized = false;
 
+
     private void Awake()
     {
-        initial3DCamPosition = transform.localPosition;
+        initial3DCamPosition = transform.position;
         s_Initialized = true;
     }
 
@@ -23,6 +25,12 @@ public class CameraShake : MonoBehaviour
 
     public static void TriggerShake(float duration, float _shakeMagnitude, float _dampingSpeed)
     {
+        if(!s_Initialized)
+            return;
+
+        if (duration < shakeDuration)
+            return;
+
         shakeDuration = duration;
 
         shakeMagnitude = _shakeMagnitude;
@@ -44,7 +52,7 @@ public class CameraShake : MonoBehaviour
             if (shakeDuration <= 0)
             {
                 shakeDuration = 0;
-                transform.position = Vector3.Lerp(transform.position, initial3DCamPosition, 1f);
+                transform.position = initial3DCamPosition;
             }
         }
     }

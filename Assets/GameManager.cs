@@ -62,11 +62,7 @@ public class GameManager : MonoBehaviour
         {
             if (PlayerGettingCaught())
             {
-                if (CameraShake.s_Initialized)
-                {
-                    Debug.Log("SHAKE DOES NOT WORK WTF!");
-                    CameraShake.TriggerShake(2f, 1f, 0.3f); 
-                }
+                CameraShake.TriggerShake(2f, .5f, 0.3f); 
                 CatchPlayer(); 
             }
         }
