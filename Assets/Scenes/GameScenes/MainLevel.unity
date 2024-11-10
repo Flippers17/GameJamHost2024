@@ -5497,7 +5497,7 @@ PrefabInstance:
     - target: {fileID: 8833988973220165719, guid: 80c9596257f4c3144ae119bf0a93bda1,
         type: 3}
       propertyPath: secounds
-      value: 180
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80c9596257f4c3144ae119bf0a93bda1, type: 3}
@@ -6261,6 +6261,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _maxTimeLookingAtPlayer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003467254110693582, guid: 1663cab92494eaf46b997af054121fc7,
+        type: 3}
+      propertyPath: _minTimeLookingAtPlayer
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5003467254110693582, guid: 1663cab92494eaf46b997af054121fc7,
         type: 3}
