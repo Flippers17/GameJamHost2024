@@ -461,3 +461,4 @@ MonoBehaviour:
   _loseProgressMultiplier: 2
   _safeAreaEffectPrefab: {fileID: 5792650440286262515, guid: a082ad4b13bd89548a7710dc046c8631,
     type: 3}
+  _effectOffset: {x: 0.15, y: 0, z: 0.15}
