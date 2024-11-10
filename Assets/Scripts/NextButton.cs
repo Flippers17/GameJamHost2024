@@ -4,7 +4,7 @@ using UnityEngine;
 public class NextButton : PickUpable
 {
     [SerializeField] private OrganSpawner corpsePrefab;
-    [SerializeField] private Transform table;
+    [SerializeField] private Transform parent;
     [SerializeField] private Animator animator;
     [SerializeField] private float moveAwayAnimTime = 2;
 
@@ -31,13 +31,13 @@ public class NextButton : PickUpable
 
         yield return new WaitForSeconds(moveAwayAnimTime);
 
-        if(table.childCount > 0)
-            Destroy(table.GetChild(0).gameObject);
+        if(parent.childCount > 0)
+            Destroy(parent.GetChild(0).gameObject);
 
-        Vector3 spawnPos = new Vector3(table.position.x, corpsePrefab.transform.position.y, table.position.z);
+        Vector3 spawnPos = new Vector3(parent.position.x, parent.position.y, parent.position.z);
         OrganSpawner spawner = Instantiate(corpsePrefab, spawnPos, corpsePrefab.transform.rotation);
         spawner.RandomizeOrgan();
-        spawner.transform.parent = table;
+        spawner.transform.parent = parent;
 
 
         animator.SetBool("GettingNewCorpse", false);
