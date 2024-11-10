@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd47908b2c6426499497900904451ef, type: 3}
   m_Name: PointsManager
   m_EditorClassIdentifier: 
+  highScore: 0
   points: 0
