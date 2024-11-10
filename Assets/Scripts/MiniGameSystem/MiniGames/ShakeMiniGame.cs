@@ -58,7 +58,6 @@ public class ShakeMiniGame : MiniGame
             playerHand.MoveHand(movement * _handMovementMultiplier * progressProcentage);
             organ.MoveOrgan(movement * _handMovementMultiplier * progressProcentage);
             m_BooldSplat.Play();
-
         }
     }
 
