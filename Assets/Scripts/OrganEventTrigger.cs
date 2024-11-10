@@ -44,6 +44,10 @@ public class OrganEventTrigger : MonoBehaviour
                 closestOrgan.StartMiniGame(controller);
                 return true;
             }
+            else
+            {
+                PopUpTextHandler.Instance.SetText("You need a " + closestOrgan.TriggerType + " to take this", 5f);
+            }
         }
 
         return false;
