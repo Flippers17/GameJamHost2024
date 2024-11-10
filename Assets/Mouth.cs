@@ -19,11 +19,12 @@ public class Mouth : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (m_PlayerHandController)
-            m_PlayerHandController.DropItem();
 
         if(collision.TryGetComponent(out Organ organ))
         {
+            if (m_PlayerHandController)
+                m_PlayerHandController.DropItem();
+
             pointsManager.AddPoints(organ.Points);
             bloodSplat.Play();
             Destroy(organ.gameObject);
