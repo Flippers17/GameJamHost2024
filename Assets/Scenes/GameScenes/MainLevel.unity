@@ -196,8 +196,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 50
-  m_Range: 25
+  m_Intensity: 200
+  m_Range: 40
   m_SpotAngle: 100
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -557,7 +557,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 50
+  m_Intensity: 200
   m_Range: 25
   m_SpotAngle: 100
   m_InnerSpotAngle: 21.80208
@@ -687,8 +687,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 50
-  m_Range: 25
+  m_Intensity: 200
+  m_Range: 40
   m_SpotAngle: 100
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -802,8 +802,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 50
-  m_Range: 25
+  m_Intensity: 200
+  m_Range: 40
   m_SpotAngle: 100
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1015,7 +1015,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 50
+  m_Intensity: 200
   m_Range: 25
   m_SpotAngle: 100
   m_InnerSpotAngle: 21.80208
@@ -1481,8 +1481,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 50
-  m_Range: 25
+  m_Intensity: 200
+  m_Range: 40
   m_SpotAngle: 100
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1638,7 +1638,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 50
+  m_Intensity: 200
   m_Range: 25
   m_SpotAngle: 100
   m_InnerSpotAngle: 21.80208
@@ -3511,7 +3511,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 50
+  m_Intensity: 200
   m_Range: 25
   m_SpotAngle: 100
   m_InnerSpotAngle: 21.80208
@@ -3955,8 +3955,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 50
-  m_Range: 25
+  m_Intensity: 200
+  m_Range: 40
   m_SpotAngle: 100
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -4334,11 +4334,6 @@ PrefabInstance:
         type: 3}
       propertyPath: boundary.height
       value: 2.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2858463938216018075, guid: 683c16cd080e4284eb1f6379f866608b,
-        type: 3}
-      propertyPath: _pickupBoxSize.y
-      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 4679720410902468097, guid: 683c16cd080e4284eb1f6379f866608b,
         type: 3}
