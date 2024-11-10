@@ -154,6 +154,11 @@ public class PlayerHandController : MonoBehaviour
         return new Vector2(handPos.position.x, handPos.position.z);
     }
 
+    public float GetHandHeight()
+    {
+        return handHeight;
+    }
+
 
     public void PlayMinigameAnimation(string stateName)
     {

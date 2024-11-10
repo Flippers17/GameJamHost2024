@@ -19,6 +19,9 @@ public class SteadyHandMinigame : MiniGame
 
     [SerializeField]
     private float _loseProgressMultiplier = 2f;
+    [SerializeField]
+    private ParticleSystem _safeAreaEffectPrefab;
+    private ParticleSystem _currentEffect;
 
     public override void OnStart(PlayerHandController controller, Organ organ)
     {
@@ -30,6 +33,9 @@ public class SteadyHandMinigame : MiniGame
         playerHand.MoveHand(new Vector2(organ.transform.position.x, organ.transform.position.z) - playerHand.GetHandPos());
         startPos = playerHand.GetHandPos();
 
+        _currentEffect = Instantiate(_safeAreaEffectPrefab, new Vector3(startPos.x, playerHand.GetHandHeight(), startPos.y), Quaternion.identity);
+        ParticleSystem.ShapeModule shape = _currentEffect.shape;
+        shape.radius = safeRadius;
     }
 
     private void Update()

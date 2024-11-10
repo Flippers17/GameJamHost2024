@@ -382,3 +382,5 @@ MonoBehaviour:
   _movementSpeed: 1
   driftSpeed: 0.2
   _loseProgressMultiplier: 2
+  _safeAreaEffectPrefab: {fileID: 5792650440286262515, guid: a082ad4b13bd89548a7710dc046c8631,
+    type: 3}
