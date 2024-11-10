@@ -108,7 +108,7 @@ MonoBehaviour:
     width: 3.63
     height: 2.31
   handHeight: 1.97
-  handMoveSpeed: 1
+  handMoveSpeed: 0.38
   _pickupBoxSize: {x: 0.3, y: 1.56, z: 0.3}
   _pickUpHandler:
     currentItem: {fileID: 0}
