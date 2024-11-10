@@ -53,6 +53,20 @@ public class SteadyHandMinigame : MiniGame
             IncreaseProgress(-_loseProgressMultiplier * Time.deltaTime);
     }
 
+    protected override void Lose()
+    {
+        base.Lose();
+        Destroy(_currentEffect);
+        _currentEffect = null;
+    }
+
+    protected override void Win()
+    {
+        base.Win();
+        Destroy(_currentEffect);
+        _currentEffect = null;
+    }
+
     private void OnMoveInput(InputAction.CallbackContext context)
     {
         playerHand.MoveHand(context.ReadValue<Vector2>().normalized * _movementSpeed);  
