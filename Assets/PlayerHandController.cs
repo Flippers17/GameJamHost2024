@@ -60,6 +60,8 @@ public class PlayerHandController : MonoBehaviour
 
     public void MoveHand(Vector2 movement)
     {
+        if (!handPos) return;
+
         Vector3 newPos = handPos.position;
         newPos += new Vector3(movement.x, 0, movement.y) * Time.deltaTime;
 

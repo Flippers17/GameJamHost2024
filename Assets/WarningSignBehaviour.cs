@@ -64,12 +64,16 @@ public class WarningSignBehaviour : MonoBehaviour
 
     private void DisableSign()
     {
+        if (!_image) return;
+
         _image.enabled = false;
         warningText.enabled = false;
     }
 
     private void EnableSign()
     {
+        if (!_image) return;
+
         _image.enabled = true;
         warningText.enabled = true;
     }
