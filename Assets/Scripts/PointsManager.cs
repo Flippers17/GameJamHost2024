@@ -6,6 +6,7 @@ public class PointsManager : ScriptableObject
 {
     public UnityAction<int> onScoreAdded;
 
+    public float highScore;
     public float points;
 
     public void AddPoints(float amount)
@@ -14,5 +15,13 @@ public class PointsManager : ScriptableObject
         onScoreAdded?.Invoke((int)points);
     }
 
-    public void ResetScore()  => points = 0;
+    public void ResetScore()
+    {
+        if(points > highScore)
+        {
+            highScore = points;
+        }
+
+        points = 0;
+    }
 }
