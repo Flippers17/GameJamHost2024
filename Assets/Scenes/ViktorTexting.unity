@@ -892,6 +892,7 @@ GameObject:
   - component: {fileID: 1032067491}
   - component: {fileID: 1032067490}
   - component: {fileID: 1032067494}
+  - component: {fileID: 1032067495}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -996,7 +997,30 @@ MonoBehaviour:
     type: 3}
   parent: {fileID: 157824484}
   animator: {fileID: 157824483}
+  buttonAnimator: {fileID: 1032067495}
+  newCorpsePort: {fileID: 11400000, guid: 67a87fe786c3db34e903bee70469e134, type: 2}
   moveAwayAnimTime: 2
+--- !u!95 &1032067495
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032067489}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: def913da67162bf40955546f043a3403, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1033808933
 GameObject:
   m_ObjectHideFlags: 0

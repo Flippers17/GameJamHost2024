@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 4859153624652423012}
   - component: {fileID: 4859153624652423013}
   - component: {fileID: 4859153624652423009}
+  - component: {fileID: 4365618984324941417}
   m_Layer: 0
   m_Name: NextButton
   m_TagString: Untagged
@@ -213,8 +214,30 @@ MonoBehaviour:
   corpsePrefab: {fileID: 0}
   parent: {fileID: 0}
   animator: {fileID: 0}
+  buttonAnimator: {fileID: 4365618984324941417}
   newCorpsePort: {fileID: 11400000, guid: 67a87fe786c3db34e903bee70469e134, type: 2}
   moveAwayAnimTime: 2
+--- !u!95 &4365618984324941417
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4859153624652423014}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: def913da67162bf40955546f043a3403, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4859153625007498553
 GameObject:
   m_ObjectHideFlags: 0
