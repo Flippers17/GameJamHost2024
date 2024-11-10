@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Scare()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         SceneLoader.LoadSceneMode(loseSceneIndex);
     }
 
