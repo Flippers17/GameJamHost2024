@@ -13,6 +13,8 @@ public class ColleagueBehaviour : MonoBehaviour
     private Animator _anim;
     [SerializeField]
     private Transform _jumpscarePos;
+    [SerializeField]
+    private AudioSource _jumpscareAudio;
 
     private void OnEnable()
     {
@@ -43,6 +45,7 @@ public class ColleagueBehaviour : MonoBehaviour
             transform.rotation = _jumpscarePos.rotation;
         }
         
+        _jumpscareAudio.Play();
         _anim.SetTrigger("Jumpscare");
     }
 
